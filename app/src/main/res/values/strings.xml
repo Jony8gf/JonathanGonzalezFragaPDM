@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">JonathanGonzalezFragaPDM</string>
+    <string name="app_name">Liebe</string>
+
+    <string name="login">Iniciar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="usuario">Usuario</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="olvido_contraseña"><u>He olvidado la contraseña.</u></string>
+
+
 </resources>
