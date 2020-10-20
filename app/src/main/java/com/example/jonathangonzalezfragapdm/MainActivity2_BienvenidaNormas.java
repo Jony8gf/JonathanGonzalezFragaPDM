@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 public class MainActivity2_BienvenidaNormas extends AppCompatActivity {
@@ -19,8 +20,8 @@ public class MainActivity2_BienvenidaNormas extends AppCompatActivity {
 
     }
 
-    public void pasarActivityRegistrarse(){
-        Intent intent = new Intent();
+    public void pasarActivityRegistrarse(View view){
+        Intent intent = new Intent(this, MainActivity2_Registro.class);
         startActivity(intent);
         finish();
     }

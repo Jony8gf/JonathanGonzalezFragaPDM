@@ -4,6 +4,6 @@
     <solid android:color="@color/pink_safe"/>
     <stroke
         android:width="3dp"
-        android:color="@color/pink"
+        android:color="@color/pink_safe"
     />
 </shape>
