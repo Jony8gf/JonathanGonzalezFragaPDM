@@ -9,7 +9,16 @@
     <string name="contraseña2">Confirmar Contraseña</string>
     <string name="olvido_contraseña"><u>He olvidado la contraseña.</u></string>
     <string name="nombre">Nombre</string>
-    <string name="email">Corro electronico</string>
+    <string name="email">Correo electronico</string>
+
+    <string name="datos_personales">Datos Personales</string>
+    <string name="fecha_nacimiento">Fecha Nacimiento</string>
+    <string name="ejem_fecha_nacimiento">01-01-1901</string>
+    <string name="genero">Genero</string>
+    <string name="gen_hombre">Hombre</string>
+    <string name="gen_mujer">Mujer</string>
+    <string name="gen_otro">Otro</string>
+
 
 
     <string name="bienvenida">Te damos la bienvenida a Liebe.</string>

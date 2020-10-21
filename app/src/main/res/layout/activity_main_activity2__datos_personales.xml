@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#282827"
+    android:textAlignment="center"
+    tools:context=".MainActivity2_DatosPersonales">
+
+    <TextView
+        android:id="@+id/textView_DatosPersonales"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/pink_safe"
+        android:text="@string/datos_personales"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp" />
+
+
+    <Button
+        android:id="@+id/button_Continuar2"
+        android:layout_width="259dp"
+        android:layout_height="69dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="3dp"
+        android:text="@string/continuar"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="162dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="405dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="124dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_FechaNacimiento"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@color/pink_safe"
+            android:text="@string/fecha_nacimiento"
+            android:textAlignment="center"
+            android:textColor="@color/pink"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editText_FechaNacimiento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/ejem_fecha_nacimiento"
+            android:inputType="date"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/pink"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView_Genero"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@color/pink_safe"
+            android:text="@string/genero"
+            android:textAlignment="center"
+            android:textColor="@color/pink"
+            android:textSize="24sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioButton_Hombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gen_mujer"
+                android:textColor="@color/pink"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton_Mujer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gen_hombre"
+                android:textColor="@color/pink"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/radioButton_Otro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gen_otro"
+                android:textColor="@color/pink"
+                android:textSize="24sp" />
+        </RadioGroup>
+
+        <Spinner
+            android:id="@+id/spinner_Genero"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@color/pink"
+            android:textAlignment="center"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
