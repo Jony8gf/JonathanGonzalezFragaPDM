@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,6 +20,28 @@ public class MainActivity2_Registro extends AppCompatActivity {
 
         //Asignacion de Button
         bt_continuar = findViewById(R.id.button_Continuar1);
+    }
+
+
+    //Metodo mostrar boton volver
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_simple_atras, menu);
+        return true;
+    }
+
+    //Metodo agregar acciones a nuestros botones
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id =item.getItemId();
+
+        if(id == R.id.menu_atras){
+            //Pasar de una Activity a otra
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            //Finalizar Activity
+            finish();
+        }
+
+        return true;
     }
 
 
