@@ -2,6 +2,7 @@ package com.example.jonathangonzalezfragapdm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -81,6 +82,12 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
         });
 
 
+    }
+
+    public void PasarIndex(View view){
+        Intent intent = new Intent(this, MainActivity2_Index.class);
+        startActivity(intent);
+        finish();
     }
 
 

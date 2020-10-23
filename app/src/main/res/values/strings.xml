@@ -20,7 +20,6 @@
     <string name="gen_otro">Otro</string>
 
 
-
     <string name="bienvenida">Te damos la bienvenida a Liebe.</string>
     <string name="norma1">  ✅  No compartas tu información personal a la ligera.</string>
     <string name="norma2">  ✅  Respeta a los demás y trata a todo el mundo como te gustaría que te tratasen a ti.</string>
@@ -29,6 +28,9 @@
     <string name="norma5">  ✅  No seas falso. En cambio, sé real. No use Liebe para llevar a las personas a sitios web externos a través de un enlace o de otro modo.</string>
     <string name="norma6">  ✅  No se involucre ni anime a otros a participar en ningún abuso o acoso dirigido contra ningún otro usuario. Esto incluye enviar cualquier contenido sexual no solicitado. Los informes de acecho, amenazas, acoso o intimidación se toman muy en serio.</string>
 
+    <string name="corazon">Corazón</string>
+    <string name="flecha">Flechazo</string>
+    <string name="no">No</string>
 
     <string name="acepto">ACEPTAR</string>
     <string name="continuar">Continuar</string>

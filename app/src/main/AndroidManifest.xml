@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jonathangonzalezfragapdm">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JonathanGonzalezFragaPDM">
-        <activity android:name=".MainActivity2_DatosPersonales"/>
+        <activity android:name=".MainActivity2_Index"></activity>
+        <activity android:name=".MainActivity2_DatosPersonales" />
         <activity android:name=".MainActivity2_Registro" />
         <activity android:name=".MainActivity2_BienvenidaNormas" />
         <activity android:name=".MainActivity">
