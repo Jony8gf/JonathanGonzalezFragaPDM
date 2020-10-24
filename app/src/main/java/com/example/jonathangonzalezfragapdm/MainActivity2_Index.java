@@ -1,16 +1,19 @@
 package com.example.jonathangonzalezfragapdm;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DiffUtil;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;
@@ -26,11 +29,37 @@ public class MainActivity2_Index extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private CardStackLayoutManager manager;
     private CardStackAdapter adapter;
+    private BottomNavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2__index);
+
+        //Asignacion de BotonNavigation
+        navigationView = findViewById(R.id.menuBotonNavegacion);
+
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                if(item.getItemId() ==  R.id.menu_home){
+                    Toast.makeText(MainActivity2_Index.this, "Has pulsado Inicio", Toast.LENGTH_SHORT).show();
+                }
+
+                if(item.getItemId() ==  R.id.menu_msg){
+                    Toast.makeText(MainActivity2_Index.this, "Has pulsado Mensajes", Toast.LENGTH_SHORT).show();
+                }
+
+                if(item.getItemId() ==  R.id.menu_perfil){
+                    Toast.makeText(MainActivity2_Index.this, "Has pulsado Perfil", Toast.LENGTH_SHORT).show();
+                }
+
+
+                return true;
+            }
+        });
 
         CardStackView cardStackView = findViewById(R.id.card_stack_view);
         manager = new CardStackLayoutManager(this, new CardStackListener() {
@@ -75,13 +104,13 @@ public class MainActivity2_Index extends AppCompatActivity {
             @Override
             public void onCardAppeared(View view, int position) {
                 TextView tv = view.findViewById(R.id.item_name);
-                Log.d(TAG, "onCardAppeared: " + position + ", nama: " + tv.getText());
+                Log.d(TAG, "onCardAppeared: " + position + ", nombre: " + tv.getText());
             }
 
             @Override
             public void onCardDisappeared(View view, int position) {
                 TextView tv = view.findViewById(R.id.item_name);
-                Log.d(TAG, "onCardAppeared: " + position + ", nama: " + tv.getText());
+                Log.d(TAG, "onCardAppeared: " + position + ", nombre: " + tv.getText());
             }
         });
         manager.setStackFrom(StackFrom.None);
@@ -101,27 +130,27 @@ public class MainActivity2_Index extends AppCompatActivity {
     }
 
     private void paginate() {
-        List<ItemModel> old = adapter.getItems();
-        List<ItemModel> baru = new ArrayList<>(addList());
-        CardStackCallback callback = new CardStackCallback(old, baru);
+        List<ItemModel> viejo = adapter.getItems();
+        List<ItemModel> nuevo = new ArrayList<>(addList());
+        CardStackCallback callback = new CardStackCallback(viejo, nuevo);
         DiffUtil.DiffResult hasil = DiffUtil.calculateDiff(callback);
-        adapter.setItems(baru);
+        adapter.setItems(nuevo);
         hasil.dispatchUpdatesTo(adapter);
     }
 
     private List<ItemModel> addList() {
         List<ItemModel> items = new ArrayList<>();
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Markonah", "24", "Jember"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Marpuah", "20", "Malang"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Sukijah", "27", "Jonggol"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Markobar", "19", "Bandung"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Marmut", "25", "Hutan"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Cecilia", "24", "Jimenezr"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Berta", "20", "Malansa"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Susana", "27", "Jonguez"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Martinar", "19", "Balando"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Elena", "25", "Hurtado"));
 
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Markonah", "24", "Jember"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Marpuah", "20", "Malang"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Sukijah", "27", "Jonggol"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Markobar", "19", "Bandung"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Marmut", "25", "Hutan"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Jose Antonio", "24", "Fernandez"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "John", "20", "Abascal"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Sergio", "27", "Garcia"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Manolo", "19", "De la Hoz"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Kike", "25", "Moro"));
         return items;
     }
 

@@ -2,31 +2,31 @@ package com.example.jonathangonzalezfragapdm;
 
 public class ItemModel {
     private int image;
-    private String nama, usia, kota;
+    private String nombre, edad, apellido;
 
     public ItemModel() {
     }
 
-    public ItemModel(int image, String nama, String usia, String kota) {
+    public ItemModel(int image, String nombre, String edad, String apellido) {
         this.image = image;
-        this.nama = nama;
-        this.usia = usia;
-        this.kota = kota;
+        this.nombre = nombre;
+        this.edad = edad;
+        this.apellido = apellido;
     }
 
     public int getImage() {
         return image;
     }
 
-    public String getNama() {
-        return nama;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getUsia() {
-        return usia;
+    public String getEdad() {
+        return edad;
     }
 
-    public String getKota() {
-        return kota;
+    public String getApellido() {
+        return apellido;
     }
 }

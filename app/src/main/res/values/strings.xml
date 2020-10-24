@@ -32,6 +32,10 @@
     <string name="flecha">Flechazo</string>
     <string name="no">No</string>
 
+    <string name="home">Inicio</string>
+    <string name="msg">Mensajes</string>
+    <string name="perfil">Perfil</string>
+
     <string name="acepto">ACEPTAR</string>
     <string name="continuar">Continuar</string>
     <string name="atras">Atras</string>
