@@ -1,42 +1,42 @@
 <resources>
     <string name="app_name">Liebe</string>
 
-    <string name="login">Iniciar Sesión</string>
-    <string name="registrarse">Registrarse</string>
-    <string name="registro"> Crear una cuenta en Liebe</string>
-    <string name="usuario">Usuario</string>
-    <string name="contraseña">Contraseña</string>
-    <string name="contraseña2">Confirmar Contraseña</string>
-    <string name="olvido_contraseña"><u>He olvidado la contraseña.</u></string>
-    <string name="nombre">Nombre</string>
-    <string name="email">Correo electronico</string>
+    <string name="login">Log in</string>
+    <string name="registrarse">Sign in</string>
+    <string name="registro"> Create Account in Liebe</string>
+    <string name="usuario">User</string>
+    <string name="contraseña">Password</string>
+    <string name="contraseña2">Confirm Password</string>
+    <string name="olvido_contraseña"><u>I forgot my password.</u></string>
+    <string name="nombre">Name</string>
+    <string name="email">Email address</string>
 
-    <string name="datos_personales">Datos Personales</string>
-    <string name="fecha_nacimiento">Fecha Nacimiento</string>
+    <string name="datos_personales">Personal information</string>
+    <string name="fecha_nacimiento">Birthdate</string>
     <string name="ejem_fecha_nacimiento">01-01-1901</string>
-    <string name="genero">Genero</string>
-    <string name="gen_hombre">Hombre</string>
-    <string name="gen_mujer">Mujer</string>
-    <string name="gen_otro">Otro</string>
+    <string name="genero">Gender</string>
+    <string name="gen_hombre">Man</string>
+    <string name="gen_mujer">Woman</string>
+    <string name="gen_otro">Other</string>
 
 
-    <string name="bienvenida">Te damos la bienvenida a Liebe.</string>
-    <string name="norma1">  ✅  No compartas tu información personal a la ligera.</string>
-    <string name="norma2">  ✅  Respeta a los demás y trata a todo el mundo como te gustaría que te tratasen a ti.</string>
-    <string name="norma3">  ✅  Denuncia siempre cualquier conducta inapropiada.</string>
-    <string name="norma4">  ✅  Asegúrate de que las fotos, edad y biografía que aparecen en tu perfil reflejan fielmente quién eres.</string>
-    <string name="norma5">  ✅  No seas falso. En cambio, sé real. No use Liebe para llevar a las personas a sitios web externos a través de un enlace o de otro modo.</string>
-    <string name="norma6">  ✅  No se involucre ni anime a otros a participar en ningún abuso o acoso dirigido contra ningún otro usuario. Esto incluye enviar cualquier contenido sexual no solicitado. Los informes de acecho, amenazas, acoso o intimidación se toman muy en serio.</string>
+    <string name="bienvenida">We welcome you to Liebe.</string>
+    <string name="norma1">  ✅  Dont share your personal information lightly.</string>
+    <string name="norma2">  ✅  Respect others and treat everyone as you would like to be treated.</string>
+    <string name="norma3">  ✅  Always report any inappropriate behavior.</string>
+    <string name="norma4">  ✅  Make sure the photos, age and bio that appear on your profile accurately reflect who you are.</string>
+    <string name="norma5">  ✅  Don’t be fake. Be real instead. Don’t use Liebe to drive people to external websites via a link or otherwise.</string>
+    <string name="norma6">  ✅  Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user. This includes sending any unsolicited sexual content. Reports of stalking, threats, bullying, or intimidation, are taken very seriously.</string>
 
-    <string name="corazon">Corazón</string>
-    <string name="flecha">Flechazo</string>
+    <string name="corazon">Heart</string>
+    <string name="flecha">Love crush</string>
     <string name="no">No</string>
 
-    <string name="home">Inicio</string>
-    <string name="msg">Mensajes</string>
-    <string name="perfil">Perfil</string>
+    <string name="home">Index</string>
+    <string name="msg">Msg</string>
+    <string name="perfil">Profile</string>
 
-    <string name="acepto">ACEPTAR</string>
-    <string name="continuar">Continuar</string>
-    <string name="atras">Atras</string>
+    <string name="acepto">Ok</string>
+    <string name="continuar">Continue</string>
+    <string name="atras">Back</string>
 </resources>
