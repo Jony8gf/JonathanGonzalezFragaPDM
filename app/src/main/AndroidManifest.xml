@@ -3,6 +3,10 @@
     package="com.example.jonathangonzalezfragapdm">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="andriod.hardware.camera" android:required="true"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -11,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JonathanGonzalezFragaPDM">
-        <activity android:name=".MainActivity2_Index"/>
+        <activity android:name=".MainActivity2_ImagenesDePerfil"/>
+        <activity android:name=".MainActivity2_Index" />
         <activity android:name=".MainActivity2_DatosPersonales" />
         <activity android:name=".MainActivity2_Registro" />
         <activity android:name=".MainActivity2_BienvenidaNormas" />
@@ -22,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

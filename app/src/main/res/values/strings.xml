@@ -28,6 +28,11 @@
     <string name="norma5">  ✅  Don’t be fake. Be real instead. Don’t use Liebe to drive people to external websites via a link or otherwise.</string>
     <string name="norma6">  ✅  Do not engage, or encourage others to engage, in any targeted abuse or harassment against any other user. This includes sending any unsolicited sexual content. Reports of stalking, threats, bullying, or intimidation, are taken very seriously.</string>
 
+    <string name="añadir_fotos">Add photos</string>
+    <string name="ayuda">Help</string>
+    <string name="ayuda_fotos">Add at least 2 photos to continue</string>
+    <string name="cancelar">Cancel</string>
+
     <string name="corazon">Heart</string>
     <string name="flecha">Love crush</string>
     <string name="no">No</string>

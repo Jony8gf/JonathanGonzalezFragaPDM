@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
+                prubaFotos();
 
             }
         });
@@ -75,6 +75,17 @@ public class MainActivity extends AppCompatActivity {
         finish();
 
     }
+
+    public void prubaFotos(){
+
+        Intent intent = new Intent(this, MainActivity2_ImagenesDePerfil.class);
+        startActivity(intent);
+        //Finalizar Activity
+        finish();
+
+    }
+
+
 
 
     @Override
