@@ -15,7 +15,8 @@
         android:id="@+id/item_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -58,10 +59,12 @@
         android:background="@drawable/overlay_black">
 
         <ImageView
+            android:id="@+id/imageview_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/index_corazon"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:contentDescription="@string/no"
+            android:src="@drawable/index_corazon" />
 
     </FrameLayout>
 
@@ -72,10 +75,12 @@
         android:background="@drawable/overlay_black">
 
         <ImageView
+            android:id="@+id/imageview_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/index_not"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:contentDescription="@string/corazon"
+            android:src="@drawable/index_not" />
 
     </FrameLayout>
 
@@ -86,10 +91,12 @@
         android:background="@drawable/overlay_black">
 
         <ImageView
+            android:id="@+id/imageview_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/index_cupido"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:contentDescription="@string/flecha"
+            android:src="@drawable/index_cupido" />
 
     </FrameLayout>
 
@@ -100,10 +107,12 @@
         android:background="@drawable/overlay_black">
 
         <ImageView
+            android:id="@+id/imageview_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/index_not"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/index_not" />
 
     </FrameLayout>
 

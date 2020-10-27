@@ -12,6 +12,8 @@
     <string name="nombre">Nombre</string>
     <string name="email">Correo electronico</string>
 
+    <string name="entendido">De acuerdo</string>
+
     <string name="datos_personales">Datos Personales</string>
     <string name="fecha_nacimiento">Fecha Nacimiento</string>
     <string name="ejem_fecha_nacimiento">01-01-1901</string>

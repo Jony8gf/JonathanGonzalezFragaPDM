@@ -1,22 +1,44 @@
 package com.example.jonathangonzalezfragapdm;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
+import android.Manifest;
+import android.app.Instrumentation;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.airbnb.lottie.animation.content.Content;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
 
     private Button bt_continuar;
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
+    private ImageView aux;
 
     private int cuentaFotos = 0;
 
@@ -42,9 +64,37 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
         //Ejecucion del metodo
         MostrarDialogAyuda();
 
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.CAMERA,
+            },100);
+
+        }
+
+
 
     }
 
+
+    public void  Camera(View view){
+
+        Intent camaraIntent  = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+            startActivityForResult(camaraIntent, 100);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 100){
+            Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
+            img1.setImageBitmap(imageBitmap);
+            cuentaFotos++;
+        }
+    }
 
     //Metodo mostrar boton volver
     public boolean onCreateOptionsMenu(Menu menu){
@@ -63,6 +113,11 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
 
         return true;
     }
+
+
+
+
+
 
 
     //Metodo para mostrar un dialog de ayuda al usuario
@@ -90,7 +145,7 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
     //Metodo para pasar al index si cumple los requisitos minimos
     public void pasarIndex(View view){
 
-        if(cuentaFotos > 3) {
+        if(cuentaFotos >= 2) {
 
             //Pasar a otra activity
             Intent intent = new Intent(this, MainActivity2_Index.class);
