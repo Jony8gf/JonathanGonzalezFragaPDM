@@ -80,6 +80,7 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
                     android:paddingLeft="1dp"
                     android:paddingRight="1dp"
                     app:srcCompat="@drawable/previo" />
@@ -90,6 +91,7 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
                     android:paddingLeft="1dp"
                     android:paddingRight="1dp"
                     app:srcCompat="@drawable/previo" />
@@ -113,6 +115,7 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
                     android:paddingLeft="1dp"
                     android:paddingRight="1dp"
                     app:srcCompat="@drawable/previo" />
@@ -123,6 +126,7 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
                     android:paddingLeft="1dp"
                     android:paddingRight="1dp"
                     app:srcCompat="@drawable/previo" />
@@ -133,6 +137,7 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
                     android:paddingLeft="1dp"
                     android:paddingRight="1dp"
                     app:srcCompat="@drawable/previo" />
@@ -156,6 +161,7 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
                     android:paddingLeft="1dp"
                     android:paddingRight="1dp"
                     app:srcCompat="@drawable/previo" />
@@ -166,6 +172,7 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
                     android:paddingLeft="1dp"
                     android:paddingRight="1dp"
                     app:srcCompat="@drawable/previo" />
@@ -176,6 +183,7 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
                     android:paddingLeft="1dp"
                     android:paddingRight="1dp"
                     app:srcCompat="@drawable/previo" />

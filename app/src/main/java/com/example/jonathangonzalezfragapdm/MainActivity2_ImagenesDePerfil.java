@@ -36,11 +36,15 @@ import java.util.Date;
 
 public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
 
+    private static final int PICK_IMAGE = 100;
+
+
     private Button bt_continuar;
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
     private ImageView aux;
-
+    private int auxid;
     private int cuentaFotos = 0;
+    private Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,21 +83,31 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
 
     public void  Camera(View view){
 
+        //Obtener Id del Botón
+        auxid = view.getId();
+        aux = view.findViewById(auxid);
+
         Intent camaraIntent  = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-            startActivityForResult(camaraIntent, 100);
-
+        startActivityForResult(camaraIntent, 100);
     }
+
+    /*
+    private void AbrirGalleria(){
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery, PICK_IMAGE);
+    }
+
+     */
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == 100){
-            Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
-            img1.setImageBitmap(imageBitmap);
-            cuentaFotos++;
-        }
+            if (requestCode == 100) {
+                Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
+                aux.setImageBitmap(imageBitmap);
+                cuentaFotos++;
+            }
     }
 
     //Metodo mostrar boton volver
@@ -113,12 +127,6 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
 
         return true;
     }
-
-
-
-
-
-
 
     //Metodo para mostrar un dialog de ayuda al usuario
     public void MostrarDialogAyuda(){
