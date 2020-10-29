@@ -8,10 +8,13 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +36,7 @@ public class MainActivity2_Index extends AppCompatActivity {
     private CardStackLayoutManager manager;
     private CardStackAdapter adapter;
     private BottomNavigationView navigationView;
+    private Button bt_report;
 
 
     @Override
@@ -42,6 +46,9 @@ public class MainActivity2_Index extends AppCompatActivity {
 
         //Asignacion de BotonNavigation
         navigationView = findViewById(R.id.menuBotonNavegacion);
+
+        //Asignacion de Botton
+        bt_report = findViewById(R.id.button_report);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -132,6 +139,7 @@ public class MainActivity2_Index extends AppCompatActivity {
         cardStackView.setItemAnimator(new DefaultItemAnimator());
     }
 
+
     private void paginate() {
         List<ItemModel> viejo = adapter.getItems();
         List<ItemModel> nuevo = new ArrayList<>(addList());
@@ -144,16 +152,16 @@ public class MainActivity2_Index extends AppCompatActivity {
     private List<ItemModel> addList() {
         List<ItemModel> items = new ArrayList<>();
         items.add(new ItemModel(R.drawable.fotoperfilprueba, "Cecilia", "24", "Jimenezr"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Berta", "20", "Malansa"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Susana", "27", "Jonguez"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Martinar", "19", "Balando"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Elena", "25", "Hurtado"));
+        items.add(new ItemModel(R.drawable.fotoperfil2, "Berta", "20", "Malansa"));
+        items.add(new ItemModel(R.drawable.fotoperfil3, "Susana", "27", "Jonguez"));
+        items.add(new ItemModel(R.drawable.fotoperfil4, "Martinar", "19", "Balando"));
+        items.add(new ItemModel(R.drawable.fotoperfil5, "Elena", "25", "Hurtado"));
 
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Jose Antonio", "24", "Fernandez"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "John", "20", "Abascal"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Sergio", "27", "Garcia"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Manolo", "19", "De la Hoz"));
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Kike", "25", "Moro"));
+        items.add(new ItemModel(R.drawable.fotoperfil6, "Jose Antonio", "24", "Fernandez"));
+        items.add(new ItemModel(R.drawable.fotoperfil7, "John", "20", "Abascal"));
+        items.add(new ItemModel(R.drawable.fotoperfil8, "Sergio", "27", "Garcia"));
+        items.add(new ItemModel(R.drawable.fotoperfil9, "Manolo", "19", "De la Hoz"));
+        items.add(new ItemModel(R.drawable.fotoperfil10, "Kike", "25", "Moro"));
         return items;
     }
 

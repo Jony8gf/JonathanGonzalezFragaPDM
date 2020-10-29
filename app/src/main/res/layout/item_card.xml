@@ -18,6 +18,12 @@
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop" />
 
+    <Button
+        android:id="@+id/button_report"
+        android:layout_width="34dp"
+        android:layout_height="wrap_content"
+        android:text=":" />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

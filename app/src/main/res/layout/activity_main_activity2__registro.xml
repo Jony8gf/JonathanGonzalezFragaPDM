@@ -112,6 +112,13 @@
             android:textColorHint="@color/pink"
             android:textColorLink="@color/pink_safe"
             android:textSize="24sp" />
+
+        <CheckBox
+            android:id="@+id/checkBox_privacidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/condiciones"
+            android:textColor="#03A9F4" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -10,6 +10,7 @@
     <string name="olvido_contraseña"><u>I forgot my password.</u></string>
     <string name="nombre">Name</string>
     <string name="email">Email address</string>
+    <string name="condiciones">Aceptar <u>Condiciones de uso y Privacidad</u></string>
 
     <string name="entendido">Agree</string>
     <string name="tips">Take the proper precautions and educate yourself well to protect yourself and take care of those around you.</string>
@@ -49,4 +50,7 @@
     <string name="acepto">Ok</string>
     <string name="continuar">Continue</string>
     <string name="atras">Back</string>
+
+    <string name="compartir_perfil">Share profile</string>
+    <string name="report_user">Report</string>
 </resources>

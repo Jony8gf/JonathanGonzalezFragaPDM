@@ -11,6 +11,7 @@
     <string name="olvido_contraseña"><u>He olvidado la contraseña.</u></string>
     <string name="nombre">Nombre</string>
     <string name="email">Correo electronico</string>
+    <string name="condiciones">Aceptar <u>Condiciones de uso y Privacidad</u></string>
 
     <string name="entendido">De acuerdo</string>
     <string name="tips">Toma las precauciones adecuadas e infórmate bien para protegerte y cuidar de quienes te rodean.</string>
@@ -49,4 +50,7 @@
     <string name="acepto">ACEPTAR</string>
     <string name="continuar">Continuar</string>
     <string name="atras">Atras</string>
+
+    <string name="compartir_perfil">Share profile</string>
+    <string name="report_user">Report</string>
 </resources>
