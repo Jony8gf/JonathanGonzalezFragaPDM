@@ -84,8 +84,8 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
 
     }
 
-    public void PasarIndex(View view){
-        Intent intent = new Intent(this, MainActivity2_Index.class);
+    public void PasarImagenesDePerfil(View view){
+        Intent intent = new Intent(this, MainActivity2_ImagenesDePerfil.class);
         startActivity(intent);
         finish();
     }

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DiffUtil;
 
+import android.net.sip.SipSession;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +32,7 @@ import com.yuyakaido.android.cardstackview.SwipeableMethod;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity2_Index extends AppCompatActivity {
+public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private static final String TAG = "MainActivity";
     private CardStackLayoutManager manager;
@@ -49,6 +51,7 @@ public class MainActivity2_Index extends AppCompatActivity {
 
         //Asignacion de Botton
         bt_report = findViewById(R.id.button_report);
+
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -164,5 +167,27 @@ public class MainActivity2_Index extends AppCompatActivity {
         items.add(new ItemModel(R.drawable.fotoperfil10, "Kike", "25", "Moro"));
         return items;
     }
+
+    public void mostrarMenuPopUp(View view){
+        PopupMenu popup = new PopupMenu(MainActivity2_Index.this, view);
+        popup.setOnMenuItemClickListener(MainActivity2_Index.this);
+        popup.inflate(R.menu.menu_report);
+        popup.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.compartir_perfil:
+                Toast.makeText(this, "Compartir Perfil", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.reportar_usuario:
+                Toast.makeText(this, "Reportar Usuario", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
 
 }

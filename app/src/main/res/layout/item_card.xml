@@ -22,6 +22,7 @@
         android:id="@+id/button_report"
         android:layout_width="34dp"
         android:layout_height="wrap_content"
+        android:onClick="mostrarMenuPopUp"
         android:text=":" />
 
     <LinearLayout
@@ -110,7 +111,8 @@
         android:id="@+id/bottom_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/overlay_black">
+        android:background="@drawable/overlay_black"
+        android:onClick="PasarImagenesDePerfil">
 
         <ImageView
             android:id="@+id/imageview_bottom"

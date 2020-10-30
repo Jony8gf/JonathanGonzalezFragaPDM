@@ -3,6 +3,7 @@ package com.example.jonathangonzalezfragapdm;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,12 +43,14 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView image;
         TextView nombre, edad, apellido;
+        Button report;
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.item_image);
             nombre = itemView.findViewById(R.id.item_name);
             edad = itemView.findViewById(R.id.item_age);
             apellido = itemView.findViewById(R.id.item_apellido);
+            report = itemView.findViewById(R.id.button_report);
         }
 
         void setData(ItemModel data) {

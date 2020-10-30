@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void prubaFotos(View view){
+    public void pasarIndex(View view){
 
-        Intent intent = new Intent(this, MainActivity2_ImagenesDePerfil.class);
+        Intent intent = new Intent(this, MainActivity2_Index.class);
         startActivity(intent);
         //Finalizar Activity
         finish();
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
 
 
-        CountDownTimer countDownTimer = new CountDownTimer(7000, 1000) {
+        CountDownTimer countDownTimer = new CountDownTimer(4000, 1000) {
             public void onTick(long millisUntilFinished) {
 
                 }
