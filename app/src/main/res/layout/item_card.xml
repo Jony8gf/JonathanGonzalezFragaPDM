@@ -22,8 +22,8 @@
         android:id="@+id/button_report"
         android:layout_width="34dp"
         android:layout_height="wrap_content"
-        android:onClick="mostrarMenuPopUp"
-        android:text=":" />
+        android:background="@android:drawable/ic_dialog_info"
+        android:onClick="mostrarMenuPopUp" />
 
     <LinearLayout
         android:orientation="vertical"
