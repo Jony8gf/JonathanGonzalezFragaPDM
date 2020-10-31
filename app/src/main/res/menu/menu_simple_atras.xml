@@ -4,6 +4,10 @@
     <item
         android:id="@+id/menu_atras"
         android:icon="@android:drawable/ic_menu_revert"
-        android:title="@string/atras"
-        app:showAsAction="ifRoom" />
+        android:title="@string/atras" />
+
+    <item
+        android:id="@+id/menu_contacto"
+        android:icon="@android:drawable/ic_dialog_email"
+        android:title="@string/contacto" />
 </menu>

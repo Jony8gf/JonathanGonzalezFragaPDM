@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity2_BienvenidaNormas extends AppCompatActivity {
 
@@ -38,6 +39,10 @@ public class MainActivity2_BienvenidaNormas extends AppCompatActivity {
             startActivity(intent);
             //Finalizar Activity
             finish();
+        }
+        if(id == R.id.menu_contacto){
+            //Mostar Toast
+            Toast.makeText(this, "Enviando e-mail", Toast.LENGTH_SHORT).show();
         }
 
         return true;
