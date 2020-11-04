@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/textView_DatosPersonales"
         android:layout_width="match_parent"
-        android:layout_height="73dp"
+        android:layout_height="64dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -43,15 +43,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="405dp"
+        android:layout_height="470dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="63dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="70dp"
         android:orientation="vertical">
 
         <TextView
@@ -123,6 +123,28 @@
             android:background="@color/pink"
             android:textAlignment="center"
             android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/textView_SobreMi"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@color/pink_safe"
+            android:text="@string/sobre_mi"
+            android:textAlignment="center"
+            android:textColor="@color/pink"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editText_SobreMi"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/des_sobre_mi"
+            android:inputType="textMultiLine"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
     </LinearLayout>
 

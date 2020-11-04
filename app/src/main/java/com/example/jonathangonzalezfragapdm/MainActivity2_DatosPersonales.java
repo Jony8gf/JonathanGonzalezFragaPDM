@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
@@ -13,6 +14,7 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
 
     private Spinner spinner;
     private RadioButton g_otro, g_masc, g_fem;
+    private EditText fecha_nacimiento, descipcion;
 
     String []generos ={"BiGenero",
             "Cross–Dresser",
@@ -47,6 +49,10 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2__datos_personales);
 
+        //Asigancion de EditText
+        fecha_nacimiento = findViewById(R.id.editText_FechaNacimiento);
+        descipcion = findViewById(R.id.editText_SobreMi);
+
         //Asignacion de Spinner
         spinner = findViewById(R.id.spinner_Genero);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, generos);
@@ -74,7 +80,7 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
         });
 
         //OnClickListener de g_masc
-        g_fem.setOnClickListener(new View.OnClickListener(){
+        g_masc.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 spinner.setVisibility(View.INVISIBLE);

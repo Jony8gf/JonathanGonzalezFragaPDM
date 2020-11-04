@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DiffUtil;
 
+import android.content.Intent;
 import android.net.sip.SipSession;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,7 +48,7 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
         setContentView(R.layout.activity_main_activity2__index);
 
         //Asignacion de BotonNavigation
-        navigationView = findViewById(R.id.menuBotonNavegacion);
+        navigationView = findViewById(R.id.menuBotonNavegacion_Index);
 
         //Asignacion de Botton
         bt_report = findViewById(R.id.button_report);
@@ -58,7 +59,7 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 if(item.getItemId() ==  R.id.menu_home){
-                    Toast.makeText(MainActivity2_Index.this, "Has pulsado Inicio", Toast.LENGTH_SHORT).show();
+
                 }
 
                 if(item.getItemId() ==  R.id.menu_msg){
@@ -66,7 +67,9 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
                 }
 
                 if(item.getItemId() ==  R.id.menu_perfil){
-                    Toast.makeText(MainActivity2_Index.this, "Has pulsado Perfil", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity2_Index.this, MainActivity2_Perfil.class);
+                    startActivity(intent);
+                    finish();
                 }
 
 
