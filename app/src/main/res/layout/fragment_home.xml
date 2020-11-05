@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+
+    <ImageView
+        android:id="@+id/imageView_FotosPerfil"
+        android:layout_width="304dp"
+        android:layout_height="186dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/ayuda_fotos"
+        android:src="@drawable/fotoperfil4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_nombreperfil"
+        android:layout_width="290dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/pink_safe"
+        android:text="@string/nombre"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_FotosPerfil" />
+
+    <TextView
+        android:id="@+id/textView_SobreMi_Perfil"
+        android:layout_width="396dp"
+        android:layout_height="121dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/white"
+        android:text="@string/des_sobre_mi"
+        android:textColor="@color/pink"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar_Perfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_nombreperfil"
+        app:layout_constraintVertical_bias="0.766" />
+
+    <RatingBar
+        android:id="@+id/ratingBar_Perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="88dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:isIndicator="true"
+        app:layout_constraintBottom_toTopOf="@+id/menuBotonNavegacion_Perfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_ConseguirFlechas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#558B2F"
+        android:text="@string/conseguir_flechas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar_Perfil" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/menuBotonNavegacion_Perfil"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/pink"
+        app:itemIconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_stack_view"
+        app:menu="@menu/menu_navegacion">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

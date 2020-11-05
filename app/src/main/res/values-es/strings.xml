@@ -56,4 +56,18 @@
 
     <string name="compartir_perfil">Share profile</string>
     <string name="report_user">Report</string>
+
+    <string name="title_activity_main_activity2__perfil">MainActivity2_Perfil</string>
+    <string name="navigation_drawer_open">Abrir navigation drawer</string>
+    <string name="navigation_drawer_close">Cerrar navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Ajustes</string>
+
+    <string name="menu_home">Perfil</string>
+    <string name="menu_gallery">Editar Perfil</string>
+    <string name="menu_slideshow">Ajustes</string>
+
+    <string name="conseguir_flechas">Conseguir Flechas</string>
 </resources>
