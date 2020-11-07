@@ -43,6 +43,7 @@
 
     <string name="corazon">Heart</string>
     <string name="flecha">Love crush</string>
+    <string name="numero_flechas">0</string>
     <string name="no">No</string>
 
     <string name="home">Index</string>
@@ -68,5 +69,6 @@
     <string name="menu_gallery">Edit Profile</string>
     <string name="menu_slideshow">Settings</string>
 
+    <string name="ayuda_eventos">This user has never accepted any appointment</string>
     <string name="conseguir_flechas">Conseguir Flechas</string>
 </resources>

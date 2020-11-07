@@ -43,6 +43,7 @@
 
     <string name="corazon">Corazón</string>
     <string name="flecha">Flechazo</string>
+    <string name="numero_flechas">0</string>
     <string name="no">No</string>
 
     <string name="home">Inicio</string>
@@ -69,5 +70,6 @@
     <string name="menu_gallery">Editar Perfil</string>
     <string name="menu_slideshow">Ajustes</string>
 
+    <string name="ayuda_eventos">Este usuario nunca ha aceptado ninguna cita</string>
     <string name="conseguir_flechas">Conseguir Flechas</string>
 </resources>

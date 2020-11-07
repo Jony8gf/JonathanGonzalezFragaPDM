@@ -9,91 +9,129 @@
 
     <ImageView
         android:id="@+id/imageView_FotosPerfil"
-        android:layout_width="304dp"
-        android:layout_height="186dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="131dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
         android:contentDescription="@string/ayuda_fotos"
         android:src="@drawable/fotoperfil4"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_nombreperfil"
-        android:layout_width="290dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="157dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="28dp"
         android:background="@color/pink_safe"
         android:text="@string/nombre"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintStart_toEndOf="@+id/imageView_FotosPerfil"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_SobreMIPerfil"
+        android:layout_width="198dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/pink_safe"
+        android:text="@string/sobre_mi"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_FotosPerfil" />
 
     <TextView
         android:id="@+id/textView_SobreMi_Perfil"
-        android:layout_width="396dp"
-        android:layout_height="121dp"
+        android:layout_width="351dp"
+        android:layout_height="105dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:background="@color/white"
+        android:background="#E8DEDE"
         android:text="@string/des_sobre_mi"
         android:textColor="@color/pink"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/ratingBar_Perfil"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_nombreperfil"
-        app:layout_constraintVertical_bias="0.766" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_SobreMIPerfil" />
+
 
     <RatingBar
         android:id="@+id/ratingBar_Perfil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="192dp"
+        android:layout_height="49dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="88dp"
+        android:layout_marginTop="192dp"
         android:clickable="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:isIndicator="true"
-        app:layout_constraintBottom_toTopOf="@+id/menuBotonNavegacion_Perfil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_ConseguirFlechas"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="#558B2F"
+        android:background="@color/purple_200"
         android:text="@string/conseguir_flechas"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_SobreMi_Perfil" />
+
+    <ImageView
+        android:id="@+id/imageView_FlechasDisponibles"
+        android:layout_width="41dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/flecha"
+        android:src="@drawable/index_cupido"
+        app:layout_constraintStart_toEndOf="@+id/imageView_FotosPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/textView_nombreperfil" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="57dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/numero_flechas"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView_FlechasDisponibles"
+        app:layout_constraintTop_toBottomOf="@+id/textView_nombreperfil" />
+
+    <TextView
+        android:id="@+id/textView_PerfilAyudaEventos"
+        android:layout_width="259dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/ayuda_eventos"
+        android:textColor="#777575"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar_Perfil" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/menuBotonNavegacion_Perfil"
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:background="@color/pink"
-        app:itemIconTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_stack_view"
-        app:menu="@menu/menu_navegacion">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,6 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity2_Perfil extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,34 @@ public class MainActivity2_Perfil extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-         */
+
+        */
+        //Asignacion de BotonNavigation
+        navigationView = findViewById(R.id.menuBotonNavegacion_Perfil);
+
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                if(item.getItemId() ==  R.id.menu_home){
+                    Intent intent = new Intent(MainActivity2_Perfil.this, MainActivity2_Index.class);
+                    startActivity(intent);
+                    finish();
+                }
+
+                if(item.getItemId() ==  R.id.menu_msg){
+                    Toast.makeText(MainActivity2_Perfil.this, "Has pulsado Mensajes", Toast.LENGTH_SHORT).show();
+                }
+
+                if(item.getItemId() ==  R.id.menu_perfil){
+
+                }
+
+
+                return true;
+            }
+        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
