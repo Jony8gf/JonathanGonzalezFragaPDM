@@ -49,11 +49,21 @@
     <string name="home">Index</string>
     <string name="msg">Msg</string>
     <string name="perfil">Profile</string>
+    <string name="notificaciones">Notifications</string>
 
     <string name="acepto">Ok</string>
     <string name="continuar">Continue</string>
     <string name="atras">Back</string>
     <string name="contacto">Contact</string>
+
+    <string name="muestrame">Muéstrame</string>
+    <string name="hombes">Men</string>
+    <string name="mujeres">Womans</string>
+    <string name="ambos">Ambos</string>
+    <string name="busco">Busco</string>
+    <string name="busco_relacion">Una Relacion</string>
+    <string name="busco_amistad">Una Amistad</string>
+    <string name="busco_noche">Una Noche Pasional</string>
 
     <string name="compartir_perfil">Share profile</string>
     <string name="report_user">Report</string>

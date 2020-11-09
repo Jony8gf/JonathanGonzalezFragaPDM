@@ -111,8 +111,7 @@
         android:id="@+id/bottom_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/overlay_black"
-        android:onClick="PasarImagenesDePerfil">
+        android:background="@drawable/overlay_black">
 
         <ImageView
             android:id="@+id/imageview_bottom"

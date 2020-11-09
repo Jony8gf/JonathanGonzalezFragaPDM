@@ -17,10 +17,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.JonathanGonzalezFragaPDM">
+        <activity android:name=".MainActivity2_Muestrame"/>
         <activity
             android:name=".MainActivity2_Perfil"
             android:label="@string/title_activity_main_activity2__perfil"
-            android:theme="@style/Theme.JonathanGonzalezFragaPDM.NoActionBar"></activity>
+            android:theme="@style/Theme.JonathanGonzalezFragaPDM.NoActionBar" />
         <activity android:name=".MainActivity2_ImagenesDePerfil" />
         <activity android:name=".MainActivity2_Index" />
         <activity android:name=".MainActivity2_DatosPersonales" />

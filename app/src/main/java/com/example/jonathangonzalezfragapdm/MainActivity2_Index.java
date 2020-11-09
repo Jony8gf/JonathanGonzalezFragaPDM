@@ -66,6 +66,10 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
                     Toast.makeText(MainActivity2_Index.this, "Has pulsado Mensajes", Toast.LENGTH_SHORT).show();
                 }
 
+                if(item.getItemId() ==  R.id.menu_notificaciones){
+                    Toast.makeText(MainActivity2_Index.this, "Has pulsado Notificaciones", Toast.LENGTH_SHORT).show();
+                }
+
                 if(item.getItemId() ==  R.id.menu_perfil){
                     Intent intent = new Intent(MainActivity2_Index.this, MainActivity2_Perfil.class);
                     startActivity(intent);

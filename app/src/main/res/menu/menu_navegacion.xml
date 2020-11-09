@@ -8,6 +8,10 @@
         android:title="@string/msg"
         android:icon="@mipmap/ic_mensajes"/>
 
+    <item android:id="@+id/menu_notificaciones"
+        android:title="@string/notificaciones"
+        android:icon="@drawable/ic_notifications_foreground"/>
+
     <item android:id="@+id/menu_perfil"
         android:title="@string/perfil"
         android:icon="@mipmap/ic_perfil"/>

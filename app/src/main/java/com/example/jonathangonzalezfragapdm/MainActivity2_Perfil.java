@@ -60,6 +60,10 @@ public class MainActivity2_Perfil extends AppCompatActivity {
                     Toast.makeText(MainActivity2_Perfil.this, "Has pulsado Mensajes", Toast.LENGTH_SHORT).show();
                 }
 
+                if(item.getItemId() ==  R.id.menu_notificaciones){
+                    Toast.makeText(MainActivity2_Perfil.this, "Has pulsado Notificaciones", Toast.LENGTH_SHORT).show();
+                }
+
                 if(item.getItemId() ==  R.id.menu_perfil){
 
                 }
