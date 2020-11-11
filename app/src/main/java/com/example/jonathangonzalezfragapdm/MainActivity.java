@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,10 +24,16 @@ public class MainActivity extends AppCompatActivity {
 
     private final static String urlWHO = "https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public";
 
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //mAuth = FirebaseAuth.getInstance();
+
+
 
         //Asignacion de componentes con la layout
         //TextView
@@ -117,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
         intent.setData(Uri.parse(urlWHO));
         startActivity(intent);
     }
+
+
 
 
 

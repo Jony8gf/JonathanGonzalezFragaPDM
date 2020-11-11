@@ -32,7 +32,7 @@
         android:layout_marginBottom="275dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/usuario"
+        android:hint="@string/email"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="#FFFFFF"

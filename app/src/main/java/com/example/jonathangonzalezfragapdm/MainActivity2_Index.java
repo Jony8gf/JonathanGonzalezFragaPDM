@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DiffUtil;
 
 import android.content.Intent;
+import android.content.OperationApplicationException;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.sip.SipSession;
 import android.os.Bundle;
 import android.util.Log;
@@ -160,8 +163,20 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
     }
 
     private List<ItemModel> addList() {
+
+        /*
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "admin", null, 1);
+        SQLiteDatabase database = admin.getWritableDatabase();
+
+        Cursor nombre  =  database.rawQuery("Select nombre from usuarios_ficticios where correo = 'Sara@usuarioficticon.com'  ", null);
+        String nom = nombre.getString(0);
+
+        System.out.println(nom);
+         */
+
+
         List<ItemModel> items = new ArrayList<>();
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Cecilia", "24", "Jimenezr"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Celia", "24", "Jimenezr"));
         items.add(new ItemModel(R.drawable.fotoperfil2, "Berta", "20", "Malansa"));
         items.add(new ItemModel(R.drawable.fotoperfil3, "Susana", "27", "Jonguez"));
         items.add(new ItemModel(R.drawable.fotoperfil4, "Martinar", "19", "Balando"));
