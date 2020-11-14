@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "345135606342",
+    "firebase_url": "https://liebe-99fef.firebaseio.com",
+    "project_id": "liebe-99fef",
+    "storage_bucket": "liebe-99fef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345135606342:android:97e03889c0d4ba1f1f3847",
+        "android_client_info": {
+          "package_name": "com.example.jonathangonzalezfragapdm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345135606342-a8sficb3t3b18us0kd02j8rc24evo43c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG9UnQ3ZQmxqxK8Qvdj_4OJq6J5mH6Dus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345135606342-a8sficb3t3b18us0kd02j8rc24evo43c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

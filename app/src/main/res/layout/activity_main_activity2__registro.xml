@@ -34,7 +34,7 @@
         android:layout_marginStart="76dp"
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="3dp"
-        android:onClick="pasarActivitySobreMi"
+        android:onClick="RegistroDeUsuario"
         android:text="@string/continuar"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
