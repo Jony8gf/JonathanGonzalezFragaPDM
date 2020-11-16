@@ -1,5 +1,6 @@
 package com.example.jonathangonzalezfragapdm;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -11,16 +12,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView olvidarContrasena ;
-    private EditText user, passwd;
-    private Button login, registrar;
+    private EditText et_email, et_passwd;
+    private String email, passwd;
 
     private final static String urlWHO = "https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public";
 
@@ -31,21 +36,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
 
 
         //Asignacion de componentes con la layout
-        //TextView
         olvidarContrasena = findViewById(R.id.text_forgotenPass);
 
         //EditText
-        user = findViewById(R.id.editText_UsuarioLogin);
-        passwd = findViewById(R.id.editText_PasswordLogin);
-
-        //Button
-        login = findViewById(R.id.button_login);
-        registrar = findViewById(R.id.button_registrar);
+        et_email = findViewById(R.id.editText_UsuarioLogin);
+        et_passwd = findViewById(R.id.editText_PasswordLogin);
 
         dialogCovid19();
 
@@ -74,11 +74,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pasarIndex(View view){
+        
+        email = et_email.getText().toString();
+        passwd = et_passwd.getText().toString();
 
-        Intent intent = new Intent(this, MainActivity2_Index.class);
-        startActivity(intent);
-        //Finalizar Activity
-        finish();
+        if (!email.isEmpty() && !passwd.isEmpty()){
+
+            loginUser();
+
+        }else{
+
+            Toast.makeText(this, "La direccion de correo o la contraseña no es correcto", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void loginUser() {
+        mAuth.signInWithEmailAndPassword(email, passwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Intent intent = new Intent(MainActivity.this, MainActivity2_Index.class);
+                    startActivity(intent);
+                    //Finalizar Activity
+                    finish();
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "La direccion de correo o la contraseña no es correcto", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
@@ -135,7 +160,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         // La actividad está a punto de hacerse visible.
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
     }
+
     @Override
     protected void onResume() {
         super.onResume();
