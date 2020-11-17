@@ -12,6 +12,8 @@
     <string name="nombre">Nombre</string>
     <string name="email">Correo electronico</string>
     <string name="condiciones">Aceptar <u>Condiciones de uso y Privacidad</u></string>
+    <string name="reinciar_passwd">Reiniciar Contraseña</string>
+    <string name="info_passwd">Se ha enviado un correo al siguiente email: </string>
 
     <string name="entendido">De acuerdo</string>
     <string name="tips">Toma las precauciones adecuadas e infórmate bien para protegerte y cuidar de quienes te rodean.</string>

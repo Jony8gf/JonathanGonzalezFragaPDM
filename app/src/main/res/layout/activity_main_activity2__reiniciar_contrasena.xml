@@ -4,6 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#282827"
     tools:context=".MainActivity2_ReiniciarContrasena">
 
+    <Button
+        android:id="@+id/button_reiniciarContraseña"
+        android:layout_width="277dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="224dp"
+        android:onClick="RestablecerPassword"
+        android:text="@string/reinciar_passwd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_EmailResetPassword"
+        app:layout_constraintVertical_bias="0.42" />
+
+    <EditText
+        android:id="@+id/editText_EmailResetPassword"
+        android:layout_width="273dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="212dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/teal_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints=""
+        />
+
+    <TextView
+        android:id="@+id/textView_infoResetPasswd"
+        android:layout_width="261dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="104dp"
+        android:text="@string/info_passwd"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

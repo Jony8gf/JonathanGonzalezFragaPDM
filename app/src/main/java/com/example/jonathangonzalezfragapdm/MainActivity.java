@@ -49,20 +49,19 @@ public class MainActivity extends AppCompatActivity {
 
         dialogCovid19();
 
+    }
 
 
+    public void pasarReinciarContrasena(View view){
 
-        //Creacion de OnClickListener para olvidarContraseña
-        //Objetico: Efectuar un paso a otra activty para recuperar contraseña
-        olvidarContrasena.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
+        Intent intent = new Intent(this, MainActivity2_ReiniciarContrasena.class);
+        startActivity(intent);
+        //Finalizar Activity
+        finish();
 
     }
+
+
 
     public void pasarBienvenida(View view){
 

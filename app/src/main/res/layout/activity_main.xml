@@ -94,6 +94,7 @@
         android:layout_marginStart="94dp"
         android:layout_marginEnd="98dp"
         android:layout_marginBottom="86dp"
+        android:onClick="pasarReinciarContrasena"
         android:text="@string/olvido_contraseña"
         android:textAlignment="center"
         android:textColor="#FFFFFF" />

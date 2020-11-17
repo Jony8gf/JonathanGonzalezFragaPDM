@@ -11,6 +11,8 @@
     <string name="nombre">Name</string>
     <string name="email">Email address</string>
     <string name="condiciones">Aceptar <u>Condiciones de uso y Privacidad</u></string>
+    <string name="reinciar_passwd">Reset Password</string>
+    <string name="info_passwd">An email has been sent to the following email: </string>
 
     <string name="entendido">Agree</string>
     <string name="tips">Take the proper precautions and educate yourself well to protect yourself and take care of those around you.</string>
@@ -58,12 +60,12 @@
 
     <string name="muestrame">Muéstrame</string>
     <string name="hombes">Men</string>
-    <string name="mujeres">Womans</string>
-    <string name="ambos">Ambos</string>
-    <string name="busco">Busco</string>
-    <string name="busco_relacion">Una Relacion</string>
-    <string name="busco_amistad">Una Amistad</string>
-    <string name="busco_noche">Una Noche Pasional</string>
+    <string name="mujeres">Women</string>
+    <string name="ambos">Both of them</string>
+    <string name="busco">I search</string>
+    <string name="busco_relacion">A relationship</string>
+    <string name="busco_amistad">A friendship</string>
+    <string name="busco_noche">A passionate night</string>
 
     <string name="compartir_perfil">Share profile</string>
     <string name="report_user">Report</string>
@@ -80,5 +82,5 @@
     <string name="menu_slideshow">Settings</string>
 
     <string name="ayuda_eventos">This user has never accepted any appointment</string>
-    <string name="conseguir_flechas">Conseguir Flechas</string>
+    <string name="conseguir_flechas">Get arrows</string>
 </resources>

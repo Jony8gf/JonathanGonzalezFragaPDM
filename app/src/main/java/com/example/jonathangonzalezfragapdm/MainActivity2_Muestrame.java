@@ -15,9 +15,8 @@ public class MainActivity2_Muestrame extends AppCompatActivity {
     }
 
 
-
     public void PasarImagenesDePerfil(View view){
-        Intent intent = new Intent(this, MainActivity2_Muestrame.class);
+        Intent intent = new Intent(this, MainActivity2_ImagenesDePerfil.class);
         startActivity(intent);
         finish();
     }
