@@ -83,4 +83,9 @@
 
     <string name="ayuda_eventos">This user has never accepted any appointment</string>
     <string name="conseguir_flechas">Get arrows</string>
+
+    <string name="cita">Love date</string>
+    <string name="cita_hora">17:00</string>
+    <string name="cita_dia">25/12/2023</string>
+    <string name="enviar_cita">Send appointment</string>
 </resources>

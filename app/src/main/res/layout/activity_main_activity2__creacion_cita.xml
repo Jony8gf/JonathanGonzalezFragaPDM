@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2_CreacionCita"
+    android:background="#282827">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/google_map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="339dp"
+        android:layout_height="273dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="37dp" />
+
+    <TextView
+        android:id="@+id/textView_CreacionCita"
+        android:layout_width="280dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="63dp"
+        android:background="@color/pink_safe"
+        android:text="@string/cita"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorLink="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/button_PropuestaDeCita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/enviar_cita"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/editText_IdUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="63dp"
+        android:ems="10"
+        android:hint="@string/usuario"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/pink"
+        android:autofillHints="" />
+
+    <ImageView
+        android:id="@+id/imageView_icono_hora"
+        android:layout_width="103dp"
+        android:layout_height="59dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="119dp"
+        android:contentDescription="@string/cita_hora"
+        app:srcCompat="@android:drawable/ic_menu_recent_history" />
+
+
+</RelativeLayout>
