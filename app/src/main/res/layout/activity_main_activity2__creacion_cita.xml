@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="97dp"
         android:layout_marginEnd="37dp" />
 
     <TextView
@@ -51,33 +51,40 @@
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/editText_IdUser"
-        android:layout_width="wrap_content"
+        android:id="@+id/input_fecha"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="86dp"
-        android:layout_marginEnd="63dp"
-        android:ems="10"
-        android:hint="@string/usuario"
-        android:inputType="textPersonName"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="374dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="@string/cita_dia"
+        android:inputType="date"
+        android:onClick="onClick"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
         android:textColorHint="@color/pink"
-        android:autofillHints="" />
+        android:autofillHints=""></EditText>
 
-    <ImageView
-        android:id="@+id/imageView_icono_hora"
-        android:layout_width="103dp"
-        android:layout_height="59dp"
+    <EditText
+        android:id="@+id/input_hora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="154dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginBottom="119dp"
-        android:contentDescription="@string/cita_hora"
-        app:srcCompat="@android:drawable/ic_menu_recent_history" />
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="427dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="@string/cita_hora"
+        android:inputType="date"
+        android:onClick="onClick"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
+        android:textColorHint="@color/pink"
+        android:autofillHints=""></EditText>
 
 
 </RelativeLayout>

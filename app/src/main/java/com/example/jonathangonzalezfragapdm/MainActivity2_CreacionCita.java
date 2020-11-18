@@ -4,14 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+
 import android.Manifest;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TimePicker;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,10 +28,36 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
-public class MainActivity2_CreacionCita extends AppCompatActivity {
 
+import java.util.Calendar;
+
+public class MainActivity2_CreacionCita extends AppCompatActivity implements View.OnClickListener {
+
+
+    private static final String CERO = "0";
+    private static final String DOS_PUNTOS = ":";
+    private static final String BARRA = "/";
+
+    //Calendario para obtener fecha & hora
+    public final Calendar c = Calendar.getInstance();
+
+    //Fecha
+    final int mes = c.get(Calendar.MONTH);
+    final int dia = c.get(Calendar.DAY_OF_MONTH);
+    final int anio = c.get(Calendar.YEAR);
+
+    //Hora
+    final int hora = c.get(Calendar.HOUR_OF_DAY);
+    final int minuto = c.get(Calendar.MINUTE);
+
+    //Widgets
+    private EditText inputFecha , inputHora;
+    ImageButton ibObtenerFecha, ibObtenerHora;
+
+    //SupportMap
     SupportMapFragment supportMapFragment;
     FusedLocationProviderClient client;
+
 
 
     @Override
@@ -37,6 +70,14 @@ public class MainActivity2_CreacionCita extends AppCompatActivity {
 
         //Inicializacion de Localizacion
         client = LocationServices.getFusedLocationProviderClient(this);
+
+        //Asingacion de EditTexts
+        inputFecha = (EditText) findViewById(R.id.input_fecha);
+        inputFecha.setOnClickListener(this);
+        inputHora = (EditText) findViewById(R.id.input_hora);
+        inputHora.setOnClickListener(this);
+
+
 
         //Chek Permiso
         if (ActivityCompat.checkSelfPermission(MainActivity2_CreacionCita.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -52,6 +93,7 @@ public class MainActivity2_CreacionCita extends AppCompatActivity {
 
 
     }
+
 
     private void getCurrentLocation() {
 
@@ -98,5 +140,91 @@ public class MainActivity2_CreacionCita extends AppCompatActivity {
                 getCurrentLocation();
             }
         }
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.input_fecha:
+                obtenerFecha();
+                break;
+            case R.id.input_hora:
+                obtenerHora();
+                break;
+        }
+    }
+
+
+    public void obtenerFecha(){
+        DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                final int mesActual = month + 1;
+
+                String diaFormateado = (dayOfMonth < 10)? CERO + String.valueOf(dayOfMonth):String.valueOf(dayOfMonth);
+                String mesFormateado = (mesActual < 10)? CERO + String.valueOf(mesActual):String.valueOf(mesActual);
+
+                inputFecha.setText(diaFormateado + BARRA + mesFormateado + BARRA + year);
+
+
+            }
+        },anio, mes, dia);
+
+        recogerFecha.show();
+
+    }
+
+    public void obtenerHora(){
+        TimePickerDialog recogerHora = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+                String horaFormateada =  (hourOfDay < 9)? String.valueOf(CERO + hourOfDay) : String.valueOf(hourOfDay);
+                String minutoFormateado = (minute < 9)? String.valueOf(CERO + minute):String.valueOf(minute);
+
+                String AM_PM;
+                if(hourOfDay < 12) {
+                    AM_PM = "a.m.";
+                } else {
+                    AM_PM = "p.m.";
+                }
+
+                inputHora.setText(horaFormateada + DOS_PUNTOS + minutoFormateado + " " + AM_PM);
+            }
+
+        }, hora, minuto, false);
+
+        recogerHora.show();
+    }
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // La actividad está a punto de hacerse visible.
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // La actividad se ha vuelto visible (ahora se "reanuda").
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Enfocarse en otra actividad  (esta actividad está a punto de ser "detenida").
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // La actividad ya no es visible (ahora está "detenida")
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // La actividad está a punto de ser destruida.
     }
 }

@@ -112,21 +112,6 @@ public class MainActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.dialog_covid);
         dialog.setTitle("Covid 19 tips");
 
-
-
-        /*
-        LottieAnimationView animationView = findViewById(R.id.animation_view);
-        animationView.playAnimation();
-
-        int num_random = (int)(Math.random()*4);
-        switch (num_random){
-            case 0: num_random = R.raw.hand_sanitizer; animationView.setAnimation(num_random); break;
-            case 1: num_random = R.raw.social_distancing; animationView.setAnimation(num_random); break;
-            case 2: num_random = R.raw.wash_your_hands; animationView.setAnimation(num_random); break;
-            case 3: num_random = R.raw.wear_mask; animationView.setAnimation(num_random); break;
-        }
-         */
-
         Button btn = findViewById(R.id.btnSaberCovid);
 
         dialog.show();
@@ -149,10 +134,6 @@ public class MainActivity extends AppCompatActivity {
         intent.setData(Uri.parse(urlWHO));
         startActivity(intent);
     }
-
-
-
-
 
 
     @Override
