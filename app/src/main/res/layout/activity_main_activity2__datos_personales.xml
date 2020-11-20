@@ -75,7 +75,10 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="@color/pink"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:clickable="true"
+            android:focusable="false"
+            android:onClick="obtenerFecha"/>
 
         <TextView
             android:id="@+id/textView_Genero"
@@ -95,7 +98,8 @@
                 android:id="@+id/radioButton_Hombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/gen_mujer"
+                android:onClick="radioButtonHombre"
+                android:text="@string/gen_hombre"
                 android:textColor="@color/pink"
                 android:textSize="24sp" />
 
@@ -103,7 +107,8 @@
                 android:id="@+id/radioButton_Mujer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/gen_hombre"
+                android:onClick="radioButtonMujer"
+                android:text="@string/gen_mujer"
                 android:textColor="@color/teal_200"
                 android:textSize="24sp" />
 
@@ -111,6 +116,7 @@
                 android:id="@+id/radioButton_Otro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="radioButtonOtro"
                 android:text="@string/gen_otro"
                 android:textColor="#FFFA00"
                 android:textSize="24sp" />

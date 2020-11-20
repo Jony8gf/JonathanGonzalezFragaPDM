@@ -88,4 +88,12 @@
     <string name="cita_hora">17:00</string>
     <string name="cita_dia">25/12/2023</string>
     <string name="enviar_cita">Send appointment</string>
+
+
+    <string name="help_internet">You do not have an internet connection</string>
+    <string name="requerido">Required</string>
+    <string name="registrado">Registered</string>
+    <string name="contrasenas_no_coinciden">Passwords do not match</string>
+    <string name="aceptar_usos">You must accept the use policies</string>
+    <string name="correo_no">The email address or password is not correct</string>
 </resources>

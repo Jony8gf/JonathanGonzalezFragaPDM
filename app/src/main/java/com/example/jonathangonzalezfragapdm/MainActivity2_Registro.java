@@ -21,7 +21,7 @@ public class MainActivity2_Registro extends AppCompatActivity {
     private Button bt_continuar;
     private EditText et_nombre, et_passwd1, et_passwd2, et_email;
     private CheckBox chk_politicas;
-    private String nombre, passwd1, passwd2, email;
+    private String nombre, passwd1, passwd2, email, req;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,33 +71,57 @@ public class MainActivity2_Registro extends AppCompatActivity {
 
     public void RegistroDeUsuario(View view){
 
+        nombre = et_nombre.getText().toString();
+        passwd1 = et_passwd1.getText().toString();
+        passwd2 = et_passwd2.getText().toString();
+        email = et_email.getText().toString();
+
+        if(nombre.equals("")){
+
+            req = String.valueOf(R.string.requerido);
+            et_nombre.setError(req);
+        }
+        if(passwd1.equals("")){
+
+            req = String.valueOf(R.string.requerido);
+            et_passwd1.setError(req);
+        }
+        if(passwd2.equals("")){
+
+            req = String.valueOf(R.string.requerido);
+            et_passwd2.setError(req);
+        }
+        if(email.equals("")){
+
+            req = String.valueOf(R.string.requerido);
+            et_email.setError(req);
+
+        }
+
         if(chk_politicas.isChecked()){
 
-            nombre = et_nombre.getText().toString();
-            passwd1 = et_passwd1.getText().toString();
-            passwd2 = et_passwd2.getText().toString();
-            email = et_email.getText().toString();
-
-            if(passwd1.equals(passwd2)){
+            if(passwd1.equals(passwd2) && !passwd1.equals("")){
 
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, passwd1);
                 Intent intent = new Intent(this, MainActivity2_DatosPersonales.class);
+                intent.putExtra("correo", email);
+                intent.putExtra("nombre", nombre);
                 startActivity(intent);
                 finish();
-                Toast.makeText(this, "Registrado", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.registrado, Toast.LENGTH_LONG).show();
 
 
             }else{
 
                 et_passwd1.setText("");
                 et_passwd2.setText("");
-                Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.contrasenas_no_coinciden, Toast.LENGTH_LONG).show();
 
             }
 
         }else{
 
-            Toast.makeText(this, "Debes aceptar las politicas de uso", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.aceptar_usos, Toast.LENGTH_LONG).show();
 
         }
     }

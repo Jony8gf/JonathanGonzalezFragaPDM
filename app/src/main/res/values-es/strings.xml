@@ -90,4 +90,12 @@
     <string name="cita_hora">17:00</string>
     <string name="cita_dia">25/12/2023</string>
     <string name="enviar_cita">Enviar Cita</string>
+
+
+    <string name="help_internet">No dispones de conexión a internet</string>
+    <string name="requerido">Requerido</string>
+    <string name="registrado">Registrado</string>
+    <string name="contrasenas_no_coinciden">Las contraseñas no coinciden</string>
+    <string name="aceptar_usos">Debes aceptar las políticas de uso</string>
+    <string name="correo_no">La dirección de correo o la contraseña no es correcto</string>
 </resources>

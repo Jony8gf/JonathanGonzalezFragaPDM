@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="97dp"
+        android:layout_marginTop="124dp"
         android:layout_marginEnd="37dp" />
 
     <TextView
@@ -26,8 +26,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="63dp"
         android:background="@color/pink_safe"
         android:text="@string/cita"
@@ -45,8 +45,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="85dp"
-        android:layout_marginEnd="85dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/enviar_cita"
         android:textSize="24sp" />
 
@@ -57,7 +57,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="374dp"
+        android:layout_marginTop="403dp"
+        android:autofillHints=""
         android:clickable="true"
         android:focusable="false"
         android:hint="@string/cita_dia"
@@ -65,8 +66,7 @@
         android:onClick="onClick"
         android:textAlignment="center"
         android:textColor="@color/pink"
-        android:textColorHint="@color/pink"
-        android:autofillHints=""></EditText>
+        android:textColorHint="@color/pink"></EditText>
 
     <EditText
         android:id="@+id/input_hora"
@@ -75,7 +75,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="-1dp"
-        android:layout_marginTop="427dp"
+        android:layout_marginTop="454dp"
+        android:autofillHints=""
         android:clickable="true"
         android:focusable="false"
         android:hint="@string/cita_hora"
@@ -83,8 +84,7 @@
         android:onClick="onClick"
         android:textAlignment="center"
         android:textColor="@color/pink"
-        android:textColorHint="@color/pink"
-        android:autofillHints=""></EditText>
+        android:textColorHint="@color/pink"></EditText>
 
 
 </RelativeLayout>

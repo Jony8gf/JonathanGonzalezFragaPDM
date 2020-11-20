@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void pasarBienvenida(View view){
 
-        Intent intent = new Intent(this, MainActivity2_CreacionCita.class);
+        Intent intent = new Intent(this, MainActivity2_DatosPersonales.class);
         startActivity(intent);
         //Finalizar Activity
         finish();
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
         }else{
 
-            Toast.makeText(this, "La direccion de correo o la contraseña no es correcto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.correo_no, Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 }
                 else{
-                    Toast.makeText(MainActivity.this, "La direccion de correo o la contraseña no es correcto", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.correo_no, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -152,7 +152,8 @@ public class MainActivity extends AppCompatActivity {
         // La actividad se ha vuelto visible (ahora se "reanuda").
         if (UtilsNetwork.isOnline(this)){
 
-            Toast.makeText(this, "No dispones de conexión a intenet",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.help_internet,Toast.LENGTH_LONG).show();
+
         }else{
 
         }
