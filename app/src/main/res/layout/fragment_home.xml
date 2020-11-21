@@ -85,11 +85,11 @@
         android:id="@+id/button_ConseguirFlechas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:background="@color/purple_200"
         android:text="@string/conseguir_flechas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_SobreMi_Perfil" />
 
@@ -131,6 +131,19 @@
         app:layout_constraintHorizontal_bias="0.565"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar_Perfil" />
+
+    <Button
+        android:id="@+id/button_creacioncita"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="106dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/purple_200"
+        android:text="@string/cita"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_SobreMi_Perfil" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

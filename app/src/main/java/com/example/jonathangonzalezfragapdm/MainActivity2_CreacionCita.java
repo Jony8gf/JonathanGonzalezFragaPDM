@@ -8,14 +8,18 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -92,6 +96,31 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
         }
 
 
+    }
+
+    //Metodo mostrar boton volver
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_simple_atras, menu);
+        return true;
+    }
+
+    //Metodo agregar acciones a nuestros botones
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id =item.getItemId();
+
+        if(id == R.id.menu_atras){
+            //Pasar de una Activity a otra
+            Intent intent = new Intent(this, MainActivity2_Perfil.class);
+            startActivity(intent);
+            //Finalizar Activity
+            finish();
+        }
+        if(id == R.id.menu_contacto){
+            //Mostar Toast
+            Toast.makeText(this, "Enviando e-mail", Toast.LENGTH_SHORT).show();
+        }
+
+        return true;
     }
 
 

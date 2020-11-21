@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -43,6 +45,8 @@ public class MainActivity2_Perfil extends AppCompatActivity {
         });
 
         */
+
+
         //Asignacion de BotonNavigation
         navigationView = findViewById(R.id.menuBotonNavegacion_Perfil);
 
@@ -92,5 +96,49 @@ public class MainActivity2_Perfil extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void creacionCita(View view){
+        Intent intent = new Intent(MainActivity2_Perfil.this, MainActivity2_CreacionCita.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // La actividad está a punto de hacerse visible.
+        // Check if user is signed in (non-null) and update UI accordingly.
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // La actividad se ha vuelto visible (ahora se "reanuda").
+        if (UtilsNetwork.isOnline(this)){
+
+
+
+        }else{
+            Toast.makeText(this, R.string.help_internet,Toast.LENGTH_LONG).show();
+        }
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Enfocarse en otra actividad  (esta actividad está a punto de ser "detenida").
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // La actividad ya no es visible (ahora está "detenida")
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // La actividad está a punto de ser destruida.
     }
 }

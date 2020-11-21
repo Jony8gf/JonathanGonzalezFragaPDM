@@ -58,7 +58,7 @@
     <string name="atras">Back</string>
     <string name="contacto">Contact</string>
 
-    <string name="muestrame">Muéstrame</string>
+    <string name="muestrame">Show me</string>
     <string name="hombes">Men</string>
     <string name="mujeres">Women</string>
     <string name="ambos">Both of them</string>
@@ -96,4 +96,5 @@
     <string name="contrasenas_no_coinciden">Passwords do not match</string>
     <string name="aceptar_usos">You must accept the use policies</string>
     <string name="correo_no">The email address or password is not correct</string>
+    <string name="help_muestrame_busco">Debes seleccionar</string>
 </resources>

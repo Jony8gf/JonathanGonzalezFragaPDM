@@ -62,16 +62,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     public void pasarBienvenida(View view){
 
-        Intent intent = new Intent(this, MainActivity2_DatosPersonales.class);
+        Intent intent = new Intent(this, MainActivity2_Index.class);
+        //Intent intent = new Intent(this, MainActivity2_BienvenidaNormas.class);
         startActivity(intent);
         //Finalizar Activity
         finish();
 
     }
+
 
     public void pasarIndex(View view){
         
@@ -152,10 +152,10 @@ public class MainActivity extends AppCompatActivity {
         // La actividad se ha vuelto visible (ahora se "reanuda").
         if (UtilsNetwork.isOnline(this)){
 
-            Toast.makeText(this, R.string.help_internet,Toast.LENGTH_LONG).show();
+
 
         }else{
-
+            Toast.makeText(this, R.string.help_internet,Toast.LENGTH_LONG).show();
         }
     }
     @Override
