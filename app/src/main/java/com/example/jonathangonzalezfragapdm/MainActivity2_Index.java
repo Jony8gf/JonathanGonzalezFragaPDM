@@ -84,6 +84,19 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
             }
         });
 
+        /*
+        bt_report.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                PopupMenu popup = new PopupMenu(MainActivity2_Index.this, v);
+                popup.setOnMenuItemClickListener(MainActivity2_Index.this);
+                popup.inflate(R.menu.menu_report);
+                popup.show();
+                return false;
+            }
+        });
+         */
+
         CardStackView cardStackView = findViewById(R.id.card_stack_view);
         manager = new CardStackLayoutManager(this, new CardStackListener() {
             @Override
@@ -165,16 +178,18 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
     private List<ItemModel> addList() {
 
 
+        /*
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "admin", null, 1);
         SQLiteDatabase database = admin.getWritableDatabase();
 
         Cursor nombre  =  database.rawQuery("Select nombre from usuarios_ficticios where correo = 'Sara@usuarioficticon.com'  ", null);
         String nom = nombre.getString(0);
+         */
 
 
 
         List<ItemModel> items = new ArrayList<>();
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, nom, "24", "Jimenezr"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Sara", "24", "Jimenezr"));
         items.add(new ItemModel(R.drawable.fotoperfil2, "Berta", "20", "Malansa"));
         items.add(new ItemModel(R.drawable.fotoperfil3, "Susana", "27", "Jonguez"));
         items.add(new ItemModel(R.drawable.fotoperfil4, "Martinar", "19", "Balando"));

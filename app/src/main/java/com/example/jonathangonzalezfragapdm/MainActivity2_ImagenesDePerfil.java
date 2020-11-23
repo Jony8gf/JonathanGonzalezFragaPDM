@@ -50,7 +50,6 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
     private int cuentaFotos = 0;
     private Uri imageUri;
     private String nombre_rec, correo_rec, fecha_rec, genero_rec, descripcion_rec, muestrame_rec, busco_rec;
-    private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     private Usuario user;
 
@@ -76,8 +75,9 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
         img8 = findViewById(R.id.imageView_foto8);
         img9 = findViewById(R.id.imageView_foto9);
 
-        //Llamamos al metodo iniciarFirebase
-        iniciarFirebase();
+
+        //Asignacion de referencia de Database Firebase
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
 
@@ -120,15 +120,7 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
         user.setLongitid(0);
 
         //Incorporamos datos a la base de datos
-        databaseReference.child(correo_rec).child(user.getUid()).setValue(user);
-
-    }
-
-    private void iniciarFirebase() {
-
-        FirebaseApp.initializeApp(this);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
+        databaseReference.child("Persona").push().setValue(user);
 
     }
 
@@ -208,7 +200,7 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
         if(cuentaFotos >= 2) {
 
             //Llamamos al metodo crearUsuario
-            //crearUsuario();
+            crearUsuario();
 
             //Pasar a otra activity
             Intent intent = new Intent(this, MainActivity2_Index.class);

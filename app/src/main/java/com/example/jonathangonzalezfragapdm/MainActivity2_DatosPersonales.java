@@ -1,9 +1,11 @@
 package com.example.jonathangonzalezfragapdm;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,6 +16,9 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class MainActivity2_DatosPersonales extends AppCompatActivity {
@@ -38,6 +43,7 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
     private RadioButton g_otro, g_masc, g_fem;
     private EditText et_fecha_nacimiento, et_descipcion;
     private String fecha, genero, descripcion, req;
+    private int comprobadorAno;
 
     private String  nombre_rec, correo_rec;
 
@@ -129,6 +135,9 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
 
     public void PasarMuestrameBusco(View view){
 
+        //Llamada al metodo comprobadorAños
+        //comprobadorAnos();
+
         //Incorpacion de datos Activty Registro
         nombre_rec = getIntent().getStringExtra("nombre");
         correo_rec = getIntent().getStringExtra("correo");
@@ -147,6 +156,11 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
             req = String.valueOf(R.string.requerido);
             et_descipcion.setError(req);
 
+        }
+
+        if(comprobadorAno <= 18){
+
+            Toast.makeText(this, "No dispones de la edad suficiente para registrarte", Toast.LENGTH_LONG).show();
         }
         /*
         if(genero.equals("")){
@@ -168,6 +182,18 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void comprobadorAnos(){
+
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fechaNac = LocalDate.parse(fecha, fmt);
+        LocalDate ahora = LocalDate.now();
+
+        Period periodo = Period.between(fechaNac, ahora);
+        comprobadorAno = periodo.getYears();
+
     }
 
 
