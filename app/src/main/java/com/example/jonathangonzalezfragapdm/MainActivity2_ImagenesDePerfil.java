@@ -26,6 +26,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.animation.content.Content;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,6 +36,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
 public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
 
@@ -45,6 +49,10 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
     private int auxid;
     private int cuentaFotos = 0;
     private Uri imageUri;
+    private String nombre_rec, correo_rec, fecha_rec, genero_rec, descripcion_rec, muestrame_rec, busco_rec;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    private Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +61,9 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
 
         //Asignacion de Button
         bt_continuar = findViewById(R.id.button_ContinuarImagenes);
+
+        //Intancia de Objeto Usuario
+        user = new Usuario();
 
         //Asigancion de ImageViews
         img1 = findViewById(R.id.imageView_foto1);
@@ -64,6 +75,11 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
         img7 = findViewById(R.id.imageView_foto7);
         img8 = findViewById(R.id.imageView_foto8);
         img9 = findViewById(R.id.imageView_foto9);
+
+        //Llamamos al metodo iniciarFirebase
+        iniciarFirebase();
+
+
 
         //Ejecucion del metodo
         MostrarDialogAyuda();
@@ -77,6 +93,42 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
         }
 
 
+
+    }
+
+    private void crearUsuario() {
+
+        //Traemos todos los valores de intent
+        nombre_rec = getIntent().getStringExtra("nombre");
+        correo_rec = getIntent().getStringExtra("correo");
+        fecha_rec = getIntent().getStringExtra("fecha");
+        genero_rec = getIntent().getStringExtra("genero");
+        descripcion_rec = getIntent().getStringExtra("descripcion");
+        muestrame_rec = getIntent().getStringExtra("muestrame");
+        busco_rec = getIntent().getStringExtra("busco");
+
+        //Asignamos al objeto user valores
+        user.setUid(UUID.randomUUID().toString());
+        user.setNombre(nombre_rec);
+        user.setCorreo(correo_rec);
+        user.setFecha_nacimiento(fecha_rec);
+        user.setGenero(genero_rec);
+        user.setDescripcion(descripcion_rec);
+        user.setMuestrame(muestrame_rec);
+        user.setBusco(busco_rec);
+        user.setLatitud(0);
+        user.setLongitid(0);
+
+        //Incorporamos datos a la base de datos
+        databaseReference.child(correo_rec).child(user.getUid()).setValue(user);
+
+    }
+
+    private void iniciarFirebase() {
+
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
 
     }
 
@@ -154,6 +206,9 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
     public void pasarIndex(View view){
 
         if(cuentaFotos >= 2) {
+
+            //Llamamos al metodo crearUsuario
+            //crearUsuario();
 
             //Pasar a otra activity
             Intent intent = new Intent(this, MainActivity2_Index.class);

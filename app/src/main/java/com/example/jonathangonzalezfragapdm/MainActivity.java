@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void pasarBienvenida(View view){
 
-        Intent intent = new Intent(this, MainActivity2_Index.class);
+        Intent intent = new Intent(this, MainActivity2_BienvenidaNormas.class);
         //Intent intent = new Intent(this, MainActivity2_BienvenidaNormas.class);
         startActivity(intent);
         //Finalizar Activity
