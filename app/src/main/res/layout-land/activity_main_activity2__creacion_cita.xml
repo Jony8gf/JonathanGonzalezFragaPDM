@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2_CreacionCita"
+    android:background="#282827">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/google_map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="555dp"
+        android:layout_height="88dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="59dp" />
+
+    <TextView
+        android:id="@+id/textView_CreacionCita"
+        android:layout_width="280dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="57dp"
+        android:background="@color/pink_safe"
+        android:text="@string/cita"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorLink="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/button_PropuestaDeCita"
+        android:layout_width="513dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/enviar_cita"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/input_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="161dp"
+        android:layout_marginEnd="-1dp"
+        android:autofillHints=""
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="@string/cita_dia"
+        android:inputType="date"
+        android:onClick="onClick"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
+        android:textColorHint="@color/pink"></EditText>
+
+    <EditText
+        android:id="@+id/input_hora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="214dp"
+        android:layout_marginEnd="0dp"
+        android:autofillHints=""
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="@string/cita_hora"
+        android:inputType="date"
+        android:onClick="onClick"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
+        android:textColorHint="@color/pink"></EditText>
+
+
+</RelativeLayout>
