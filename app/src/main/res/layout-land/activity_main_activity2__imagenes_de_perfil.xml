@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2_ImagenesDePerfil"
+    android:background="#282827">
+
+    <TextView
+        android:id="@+id/textView_AñadirImagenes"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/pink_safe"
+        android:text="@string/añadir_fotos"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/button_ContinuarImagenes"
+        android:layout_width="259dp"
+        android:layout_height="69dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="3dp"
+        android:onClick="pasarIndex"
+        android:text="@string/continuar"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="162dp" />
+
+    <TableLayout
+        android:id="@+id/tabke"
+        android:layout_width="682dp"
+        android:layout_height="133dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="125dp">
+
+        <TableRow
+            android:id="@+id/linea1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linea1_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView_foto1"
+                    android:layout_width="220dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    app:srcCompat="@drawable/previo" />
+
+                <ImageView
+                    android:id="@+id/imageView_foto2"
+                    android:layout_width="220dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    app:srcCompat="@drawable/previo" />
+
+                <ImageView
+                    android:id="@+id/imageView_foto3"
+                    android:layout_width="230dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    app:srcCompat="@drawable/previo" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/linea3_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linea3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView_foto4"
+                    android:layout_width="135dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    app:srcCompat="@drawable/previo" />
+
+                <ImageView
+                    android:id="@+id/imageView_foto5"
+                    android:layout_width="135dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    app:srcCompat="@drawable/previo" />
+
+                <ImageView
+                    android:id="@+id/imageView_foto6"
+                    android:layout_width="135dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    app:srcCompat="@drawable/previo" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/linea2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linea2_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView_foto7"
+                    android:layout_width="135dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    app:srcCompat="@drawable/previo" />
+
+                <ImageView
+                    android:id="@+id/imageView_foto8"
+                    android:layout_width="135dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    app:srcCompat="@drawable/previo" />
+
+                <ImageView
+                    android:id="@+id/imageView_foto9"
+                    android:layout_width="135dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/añadir_fotos"
+                    android:onClick="Camera"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    app:srcCompat="@drawable/previo" />
+            </LinearLayout>
+        </TableRow>
+
+    </TableLayout>
+
+
+</RelativeLayout>
