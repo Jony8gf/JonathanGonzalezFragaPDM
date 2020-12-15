@@ -71,6 +71,9 @@
     <string name="compartir_perfil">Share profile</string>
     <string name="report_user">Report</string>
 
+    <string name="borrar_foto">Borrar Foto</string>
+    <string name="copiar_foto">Copiar Foto</string>
+
     <string name="title_activity_main_activity2__perfil">MainActivity2_Perfil</string>
     <string name="navigation_drawer_open">Abrir navigation drawer</string>
     <string name="navigation_drawer_close">Cerrar navigation drawer</string>

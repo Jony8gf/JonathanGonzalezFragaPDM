@@ -82,7 +82,6 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
         inputHora.setOnClickListener(this);
 
 
-
         //Chek Permiso
         if (ActivityCompat.checkSelfPermission(MainActivity2_CreacionCita.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
@@ -202,6 +201,8 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
         },anio, mes, dia);
 
         recogerFecha.show();
+
+
 
     }
 

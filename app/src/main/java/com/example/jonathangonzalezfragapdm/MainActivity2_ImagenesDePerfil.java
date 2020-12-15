@@ -19,11 +19,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.airbnb.lottie.animation.content.Content;
 import com.google.firebase.FirebaseApp;
@@ -38,7 +41,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
+public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private static final int PICK_IMAGE = 100;
 
@@ -52,9 +55,10 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
     private String nombre_rec, correo_rec, fecha_rec, genero_rec, descripcion_rec, muestrame_rec, busco_rec;
     private DatabaseReference databaseReference;
     private Usuario user;
+    private View v;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2__imagenes_de_perfil);
 
@@ -74,6 +78,14 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
         img7 = findViewById(R.id.imageView_foto7);
         img8 = findViewById(R.id.imageView_foto8);
         img9 = findViewById(R.id.imageView_foto9);
+
+        img1.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                mostrarMenuPopUp(v);
+                return false;
+            }
+        });
 
 
         //Asignacion de referencia de Database Firebase
@@ -214,6 +226,47 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
         }
     }
 
+
+    public void mostrarMenuPopUp(View v){
+        PopupMenu popup = new PopupMenu(MainActivity2_ImagenesDePerfil.this, v);
+        popup.setOnMenuItemClickListener((PopupMenu.OnMenuItemClickListener) MainActivity2_ImagenesDePerfil.this);
+        popup.inflate(R.menu.menu_seleccion_imagenes);
+        popup.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.borrar_foto:
+                Toast.makeText(this, R.string.borrar_foto, Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.copiar_foto:
+                Toast.makeText(this, R.string.copiar_foto, Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+
+        }
+    }
+
+
+    /*
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.compartir_perfil:
+                Toast.makeText(this, "Compartir Perfil", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.reportar_usuario:
+                Toast.makeText(this, "Reportar Usuario", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+     */
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -239,4 +292,6 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity {
         super.onDestroy();
         // La actividad está a punto de ser destruida.
     }
+
+
 }

@@ -2,6 +2,7 @@ package com.example.jonathangonzalezfragapdm;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,8 +20,11 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
     private List<ItemModel> items;
 
     public CardStackAdapter(List<ItemModel> items) {
+
+
         this.items = items;
     }
+
 
     @NonNull
     @Override
@@ -44,6 +48,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
         ImageView image;
         TextView nombre, edad, apellido;
         Button report;
+
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.item_image);
@@ -51,6 +56,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
             edad = itemView.findViewById(R.id.item_age);
             apellido = itemView.findViewById(R.id.item_apellido);
             report = itemView.findViewById(R.id.button_report);
+
         }
 
         void setData(ItemModel data) {
@@ -63,6 +69,10 @@ public class CardStackAdapter extends RecyclerView.Adapter<CardStackAdapter.View
             edad.setText(data.getEdad());
             apellido.setText(data.getApellido());
         }
+
+
+
+
     }
 
     public List<ItemModel> getItems() {
