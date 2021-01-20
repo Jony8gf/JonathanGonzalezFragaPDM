@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText et_email, et_passwd;
     private String email, passwd;
 
+    private MediaPlayer mpMusica;
+
     private final static String urlWHO = "https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public";
 
     private FirebaseAuth mAuth;
@@ -40,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        mpMusica = MediaPlayer.create(this, R.raw.musica_bienvenida);
+        mpMusica.start();
+        mpMusica.setLooping(true);
 
         //Asignacion de componentes con la layout
         olvidarContrasena = findViewById(R.id.text_forgotenPass);
@@ -55,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void pasarReinciarContrasena(View view){
 
+        mpMusica.stop();
+        mpMusica.release();
+
         Intent intent = new Intent(this, MainActivity2_ReiniciarContrasena.class);
         startActivity(intent);
         //Finalizar Activity
@@ -63,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pasarBienvenida(View view){
+
+        mpMusica.stop();
+        mpMusica.release();
 
         Intent intent = new Intent(this, MainActivity2_BienvenidaNormas.class);
         //Intent intent = new Intent(this, MainActivity2_BienvenidaNormas.class);
@@ -80,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (!email.isEmpty() && !passwd.isEmpty()){
 
+            mpMusica.stop();
+            mpMusica.release();
             loginUser();
 
         }else{
@@ -144,13 +158,20 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
+        try {
+            mpMusica.start();
+            mpMusica.setLooping(true);
+        } catch (IllegalStateException e) {
+        }
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         // La actividad se ha vuelto visible (ahora se "reanuda").
-        View view = new View(getApplicationContext());
+        //View view = new View(getApplicationContext());
+        mpMusica.start();
 
         if (UtilsNetwork.isOnline(this)){
 
@@ -165,6 +186,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+
+        try {
+            mpMusica.pause();
+            mpMusica.setLooping(false);
+        }catch (IllegalStateException e){
+
+        }
         // Enfocarse en otra actividad  (esta actividad está a punto de ser "detenida").
     }
     @Override
