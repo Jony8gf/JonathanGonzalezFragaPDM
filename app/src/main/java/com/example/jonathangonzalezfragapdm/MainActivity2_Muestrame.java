@@ -25,6 +25,11 @@ public class MainActivity2_Muestrame extends AppCompatActivity {
         rb_hombres = findViewById(R.id.radioButton_MuestremeHombres);
         rb_ambos = findViewById(R.id.radioButton_MuestremeAmobs);
 
+        //Asignacion de RadioButtons
+        rb_relacion = findViewById(R.id.radioButton_BuscoRelacion);
+        rb_lio = findViewById(R.id.radioButton2radioButton_BuscoNoche);
+        rb_amistad = findViewById(R.id.radioButton_BuscoAmistad);
+
     }
 
 

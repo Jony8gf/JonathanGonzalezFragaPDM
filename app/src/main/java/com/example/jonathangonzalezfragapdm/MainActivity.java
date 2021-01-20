@@ -150,11 +150,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // La actividad se ha vuelto visible (ahora se "reanuda").
+        View view = new View(getApplicationContext());
+
         if (UtilsNetwork.isOnline(this)){
 
 
 
         }else{
+            //View v = new View(this.getApplicationContext());
+            //Snackbar.make(v, R.string.help_internet, Snackbar.LENGTH_LONG).show();
             Toast.makeText(this, R.string.help_internet,Toast.LENGTH_LONG).show();
         }
     }

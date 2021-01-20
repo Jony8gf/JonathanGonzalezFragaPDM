@@ -11,8 +11,8 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -22,10 +22,11 @@
         android:theme="@style/Theme.JonathanGonzalezFragaPDM">
 
 
-        <meta-data android:name="com.google.android.geo.API_KEY"
-                    android:value="AIzaSyBdMYg1eirJ9TvpFf130k5DOauzmGJOsS8"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBdMYg1eirJ9TvpFf130k5DOauzmGJOsS8" />
 
-        <activity android:name=".MainActivity2_CreacionCita"/>
+        <activity android:name=".MainActivity2_CreacionCita" />
         <activity android:name=".MainActivity2_ReiniciarContrasena" />
         <activity android:name=".MainActivity2_Muestrame" />
         <activity
@@ -37,12 +38,14 @@
         <activity android:name=".MainActivity2_DatosPersonales" />
         <activity android:name=".MainActivity2_Registro" />
         <activity android:name=".MainActivity2_BienvenidaNormas" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 
