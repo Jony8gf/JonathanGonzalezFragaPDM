@@ -47,6 +47,15 @@
     <string name="flecha">Love crush</string>
     <string name="numero_flechas">0</string>
     <string name="no">No</string>
+    <string name="fresa">Strawberry</string>
+    <string name="limon">Lemon</string>
+    <string name="coco">Coco</string>
+    <string name="slot1">Slot1</string>
+    <string name="slot2">Slot2</string>
+    <string name="slot3">Slot3</string>
+
+    <string name="play">Play</string>
+
 
     <string name="home">Index</string>
     <string name="msg">Msg</string>
