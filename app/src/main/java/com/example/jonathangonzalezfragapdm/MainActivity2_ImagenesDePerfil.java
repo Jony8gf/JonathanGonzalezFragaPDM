@@ -250,23 +250,6 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
     }
 
 
-    /*
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.compartir_perfil:
-                Toast.makeText(this, "Compartir Perfil", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.reportar_usuario:
-                Toast.makeText(this, "Reportar Usuario", Toast.LENGTH_SHORT).show();
-                return true;
-            default:
-                return super.onContextItemSelected(item);
-        }
-    }
-
-     */
-
     @Override
     protected void onStart() {
         super.onStart();

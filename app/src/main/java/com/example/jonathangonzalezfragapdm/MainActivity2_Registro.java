@@ -78,22 +78,22 @@ public class MainActivity2_Registro extends AppCompatActivity {
 
         if(nombre.equals("")){
 
-            req = String.valueOf(R.string.requerido);
+            req = getString(R.string.requerido);
             et_nombre.setError(req);
         }
         if(passwd1.equals("")){
 
-            req = String.valueOf(R.string.requerido);
+            req = getString(R.string.requerido);
             et_passwd1.setError(req);
         }
         if(passwd2.equals("")){
 
-            req = String.valueOf(R.string.requerido);
+            req = getString(R.string.requerido);
             et_passwd2.setError(req);
         }
         if(email.equals("")){
 
-            req = String.valueOf(R.string.requerido);
+            req = getString(R.string.requerido);
             et_email.setError(req);
 
         }

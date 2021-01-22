@@ -21,7 +21,7 @@
 
     <string name="datos_personales">Datos Personales</string>
     <string name="fecha_nacimiento">Fecha Nacimiento</string>
-    <string name="ejem_fecha_nacimiento">01-01-1901</string>
+    <string name="ejem_fecha_nacimiento">01/01/1901</string>
     <string name="genero">Genero</string>
     <string name="gen_hombre">Hombre</string>
     <string name="gen_mujer">Mujer</string>
@@ -111,4 +111,11 @@
     <string name="aceptar_usos">Debes aceptar las políticas de uso</string>
     <string name="correo_no">La dirección de correo o la contraseña no es correcto</string>
     <string name="help_muestrame_busco">Debes seleccionar</string>
+
+
+    <string name="slot_win">Felicidades has ganado una flecha.</string>
+    <string name="slot_loss">Lo siento, no has ganado ninguna flecha, vuelve a intentarlo.</string>
+    <string name="slot_diamond1">Has conseguido </string>
+    <string name="slot_diamond2"> diamantes.</string>
+
 </resources>

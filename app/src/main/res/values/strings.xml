@@ -21,7 +21,7 @@
 
     <string name="datos_personales">Personal information</string>
     <string name="fecha_nacimiento">Birthdate</string>
-    <string name="ejem_fecha_nacimiento">01-01-1901</string>
+    <string name="ejem_fecha_nacimiento">01/01/1901</string>
     <string name="genero">Gender</string>
     <string name="gen_hombre">Man</string>
     <string name="gen_mujer">Woman</string>
@@ -62,7 +62,7 @@
     <string name="perfil">Profile</string>
     <string name="notificaciones">Notifications</string>
 
-    <string name="acepto">Ok</string>
+    <string name="acepto">Okay</string>
     <string name="continuar">Continue</string>
     <string name="atras">Back</string>
     <string name="contacto">Contact</string>
@@ -110,4 +110,11 @@
     <string name="aceptar_usos">You must accept the use policies</string>
     <string name="correo_no">The email address or password is not correct</string>
     <string name="help_muestrame_busco">Debes seleccionar</string>
+
+
+    <string name="slot_win">Felicidades has ganado una flecha.</string>
+    <string name="slot_loss">Lo siento, no has ganado ninguna flecha, vuelve a intentarlo.</string>
+    <string name="slot_diamond1">Has conseguido </string>
+    <string name="slot_diamond2"> diamantes.</string>
+
 </resources>

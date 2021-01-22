@@ -11,8 +11,8 @@ public class Wheel extends Thread {
     private static int[] imgs = {R.drawable.fresa,
             R.drawable.limon,
             R.drawable.coco,
-            R.drawable.index_cupido,
-            R.drawable.index_corazon};
+            R.drawable.index_corazon,
+            R.drawable.index_cupido};
 
     public int currentIndex;
     private WheelListener wheelListener;

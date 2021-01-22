@@ -1,28 +1,74 @@
 package com.example.jonathangonzalezfragapdm;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.OnPaidEventListener;
+import com.google.android.gms.ads.OnUserEarnedRewardListener;
+import com.google.android.gms.ads.ResponseInfo;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd;
+import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicMarkableReference;
 
 public class MainActivity_SlotMachine extends AppCompatActivity {
 
+    private LottieAnimationView lottieAnim;
+    private DatabaseReference databaseReference;
+
+    //Creacion de Objeto InterstitialAd
+    private InterstitialAd mInterstitialAd;
+
+    //Cracion de Objeto AdView (Google Admod)
+    private AdView mAdView;
+
+    private int walletDiamond;
+    private String auxDiamond;
+
     private ImageView img1, img2, img3;
+    private TextView tvDiamantes;
     private Wheel wheel1, wheel2, wheel3;
     private Button btn;
     private boolean isStarted;
+
 
     public static final Random RANDOM = new Random();
 
     public static long randomLong(long lower, long upper) {
         return lower + (long) (RANDOM.nextDouble() * (upper - lower));
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,49 +80,83 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         img2 = (ImageView) findViewById(R.id.img2);
         img3 = (ImageView) findViewById(R.id.img3);
         btn = (Button) findViewById(R.id.btnPlay);
+        tvDiamantes = (TextView) findViewById(R.id.textView_Diamantes);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+
+        lottieAnim = (LottieAnimationView) findViewById(R.id.animation_win_slotMachine);
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+
+
+        //Preparacion de y asignacion de id
+        //Asignacion de Id a Ads y Asignacion a InterstitialAd
+        MobileAds.initialize(this,
+                "ca-app-pub-8043381776244583~7687473041");
+
+
+        //Preparacion Adview y asignacion de id
+        mAdView = findViewById(R.id.adView);
+        AdView adView = new AdView(this);
+
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId("ca-app-pub-8043381776244583/9427752515");
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
+        //databaseReference.child("Persona").push().setValue(user);
+        databaseReference.child("Persona").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-
-                runWhells();
-
-                if (isStarted) {
-
-                    CountDownTimer ct1 = new CountDownTimer(5000, 1000) {
-
-                        public void onTick(long millisUntilFinished) {
-
-                        }
-
-                        public void onFinish() {
-
-                            wheel1.stopWheel();
-                            wheel2.stopWheel();
-                            wheel3.stopWheel();
-
-                            if (wheel1.currentIndex == wheel2.currentIndex && wheel2.currentIndex == wheel3.currentIndex) {
-                                //Iguales
-                            } else if (wheel1.currentIndex == wheel2.currentIndex || wheel2.currentIndex == wheel3.currentIndex
-                                    || wheel1.currentIndex == wheel3.currentIndex) {
-                                //F
-                            } else {
-                                //ffffffffffffffffff
-                            }
-
-                            isStarted = false;
-
-                        }
-
-                    }.start();
-
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    //auxDiamond = snapshot.child("MMquV8nwYwIMwoV8BZH").child("correo").getValue().toString();
+                    //tvDiamantes.setText(auxDiamond);
                 }
             }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
         });
+
     }
 
 
-    public void runWhells(){
+
+    public void tiradaSlot(View v){
+
+        runWheells();
+
+        if(walletDiamond > 10){
+
+            //Anuncio
+
+        }else{
+            if (isStarted) {
+
+                CountDownTimer ct1 = new CountDownTimer(7000, 1000) {
+
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    public void onFinish() {
+
+                        stopWheells();
+                        walletDiamond=walletDiamond-10;
+
+                    }
+
+                }.start();
+            }
+        }
+    }
+
+
+
+    public void runWheells(){
 
 
         wheel1 = new Wheel(new Wheel.WheelListener() {
@@ -103,7 +183,7 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
                     }
                 });
             }
-        }, 200, randomLong(150, 400));
+        }, 190, randomLong(150, 400));
 
         wheel2.start();
 
@@ -117,11 +197,107 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
                     }
                 });
             }
-        }, 200, randomLong(150, 400));
+        }, 195, randomLong(150, 400));
 
         wheel3.start();
 
         isStarted = true;
+    }
+
+    public void stopWheells(){
+
+        wheel1.stopWheel();
+        wheel2.stopWheel();
+        wheel3.stopWheel();
+
+
+        if (wheel1.currentIndex == wheel2.currentIndex && wheel2.currentIndex == wheel3.currentIndex) {
+            switch (wheel1.currentIndex){
+
+                case  0:
+                    dialogWinDiamonds(1);
+                    break;
+                case  1:
+                    dialogWinDiamonds(2);
+                    break;
+                case  2:
+                    dialogWinDiamonds(3);
+                    break;
+                case  3:
+                     dialogWinDiamonds(5);
+                    break;
+                case  4:
+                    dialogWinArrows();
+                    break;
+                default:
+                    break;
+            }
+
+        } else {
+            dialogNotWinArrows();
+        }
+
+        isStarted = false;
+
+    }
+
+
+    public void dialogWinArrows(){
+
+        Dialog dialog= new Dialog(this);
+        dialog.setContentView(R.layout.dialog_win_slot_machine);
+        dialog.setTitle("Get Arrows");
+        dialog.show();
+    }
+
+
+    public void dialogNotWinArrows(){
+
+        Dialog dialog= new Dialog(this);
+        dialog.setContentView(R.layout.dialog_loss_slot_machine);
+        dialog.setTitle("Get Arrows");
+        dialog.show();
+    }
+
+    public void dialogWinDiamonds(int diamonds){
+
+        Dialog dialog= new Dialog(this);
+        dialog.setContentView(R.layout.dialog_diamond_slot_machine);
+        dialog.setTitle("Get Arrows");
+        TextView tvDiamonds = (TextView)findViewById(R.id.textView_diamondSlot);
+        String auxDiamond1, auxDiamond2;
+        auxDiamond1 = getString(R.string.slot_diamond1);
+        auxDiamond2 = getString(R.string.slot_diamond2);
+
+        switch (diamonds){
+            case 1:
+
+                walletDiamond = walletDiamond + 1;
+                tvDiamonds.setText(auxDiamond1 + diamonds + auxDiamond2 );
+                break;
+            case 2:
+
+                walletDiamond = walletDiamond + 2;
+                tvDiamonds.setText(auxDiamond1 + diamonds + auxDiamond2 );
+                break;
+            case 3:
+
+                walletDiamond = walletDiamond + 3;
+                tvDiamonds.setText(auxDiamond1 + diamonds + auxDiamond2 );
+                break;
+            case 5:
+
+                walletDiamond = walletDiamond + 5;
+                tvDiamonds.setText(auxDiamond1 + diamonds + auxDiamond2 );
+                break;
+            default:
+                break;
+        }
+
+        dialog.show();
+
+        //Modificar WalletDiamondFirebase
+
     }
 
 }

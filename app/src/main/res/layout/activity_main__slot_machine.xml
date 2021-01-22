@@ -48,7 +48,36 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="95dp"
+        android:onClick="tiradaSlot"
         android:text="@string/play" />
+
+    <TextView
+        android:id="@+id/textView_Diamantes"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="89dp"
+        android:shadowColor="#73EAD2"
+        android:text="@string/numero_flechas"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:drawableStartCompat="@drawable/diamante"
+        />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="390dp"
+        android:layout_height="86dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="542dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-8043381776244583/9427752515"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </RelativeLayout>

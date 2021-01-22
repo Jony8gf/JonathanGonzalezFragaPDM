@@ -162,15 +162,6 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
 
             Toast.makeText(this, "No dispones de la edad suficiente para registrarte", Toast.LENGTH_LONG).show();
         }
-        /*
-        if(genero.equals("")){
-
-            Toast.makeText(this, "Debes selecionar un genero", Toast.LENGTH_SHORT).show();
-        }
-
-        && !genero.equals("")
-
-         */
 
         if(!fecha.equals("") && !descripcion.equals("")) {
             Intent intent = new Intent(this, MainActivity2_Muestrame.class);

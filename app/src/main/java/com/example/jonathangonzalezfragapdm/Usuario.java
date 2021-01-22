@@ -11,6 +11,8 @@ public class Usuario {
     private String busco;
     private int latitud;
     private int longitid;
+    private int diamonds;
+    private int arrows;
 
 
 
@@ -25,6 +27,8 @@ public class Usuario {
         this.busco = busco;
         this.latitud = latitud;
         this.longitid = longitid;
+        this.diamonds = 0;
+        this.arrows = 1;
     }
 
     public Usuario() {
@@ -109,5 +113,21 @@ public class Usuario {
 
     public void setLongitid(int longitid) {
         this.longitid = longitid;
+    }
+
+    public int getDiamonds() {
+        return diamonds;
+    }
+
+    public void setDiamonds(int diamonds) {
+        this.diamonds = diamonds;
+    }
+
+    public int getArrows() {
+        return arrows;
+    }
+
+    public void setArrows(int arrows) {
+        this.arrows = arrows;
     }
 }
