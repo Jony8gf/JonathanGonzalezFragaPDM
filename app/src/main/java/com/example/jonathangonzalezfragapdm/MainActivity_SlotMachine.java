@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -27,6 +28,12 @@ import com.google.android.gms.ads.ResponseInfo;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdCallback;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd;
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,6 +55,7 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
 
     //Creacion de Objeto InterstitialAd
     private InterstitialAd mInterstitialAd;
+    private RewardedAd rewardedAd;
 
     //Cracion de Objeto AdView (Google Admod)
     private AdView mAdView;
@@ -93,6 +101,22 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         MobileAds.initialize(this,
                 "ca-app-pub-8043381776244583~7687473041");
 
+        // Use an activity context to get the rewarded video instance.
+        rewardedAd = new RewardedAd(this,
+                "ca-app-pub-8043381776244583/6578227890");
+
+        RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
+            @Override
+            public void onRewardedAdLoaded() {
+                // Ad successfully loaded.
+            }
+
+            @Override
+            public void onRewardedAdFailedToLoad(LoadAdError adError) {
+                // Ad failed to load.
+            }
+        };
+        rewardedAd.loadAd(new AdRequest.Builder().build(), adLoadCallback);
 
         //Preparacion Adview y asignacion de id
         mAdView = findViewById(R.id.adView);
@@ -129,9 +153,11 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
 
         runWheells();
 
+        loadRewardedVideoAd();
+
         if(walletDiamond > 10){
 
-            //Anuncio
+
 
         }else{
             if (isStarted) {
@@ -300,4 +326,31 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
 
     }
 
+    private void loadRewardedVideoAd() {
+        if (rewardedAd.isLoaded()) {
+            Activity activityContext = MainActivity_SlotMachine.this;
+            RewardedAdCallback adCallback = new RewardedAdCallback() {
+                @Override
+                public void onRewardedAdOpened() {
+                    // Ad opened.
+                }
+
+                @Override
+                public void onRewardedAdClosed() {
+                    // Ad closed.
+                }
+
+                @Override
+                public void onUserEarnedReward(@NonNull RewardItem reward) {
+                    // User earned reward.
+                }
+
+                @Override
+                public void onRewardedAdFailedToShow(AdError adError) {
+                    // Ad failed to display.
+                }
+            };
+            rewardedAd.show(activityContext, adCallback);
+        }
+    }
 }
