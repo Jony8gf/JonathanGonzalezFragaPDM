@@ -2,11 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/borrar_foto"
-        android:title="@string/borrar_foto" />
+        android:id="@+id/sacar_foto"
+        android:title="@string/camara" />
 
     <item
-        android:id="@+id/copiar_foto"
-        android:title="@string/copiar_foto" />
+        android:id="@+id/galeria"
+        android:title="@string/imagen" />
+
+    <item
+        android:id="@+id/borrar_foto"
+        android:title="@string/borrar_foto" />
 
 </menu>

@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.app.Instrumentation;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -17,6 +18,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -24,6 +26,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
@@ -48,6 +51,7 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
 
     private Button bt_continuar;
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
+    private View auxViex;
     private ImageView aux;
     private int auxid;
     private int cuentaFotos = 0;
@@ -103,9 +107,21 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
             },100);
 
         }
+    }
 
+    public  void onLongSelectorImage(View v){
 
+        //Obtener Id del Botón
+        auxid = v.getId();
+        aux = v.findViewById(auxid);
 
+        aux.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                mostrarMenuPopUp(v);
+                return false;
+            }
+        });
     }
 
     private void crearUsuario() {
@@ -136,24 +152,27 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
 
     }
 
-
-    public void  Camera(View view){
+    public void  selectionImageView(View view){
 
         //Obtener Id del Botón
         auxid = view.getId();
         aux = view.findViewById(auxid);
+    }
+
+    public void  Camera(){
 
         Intent camaraIntent  = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(camaraIntent, 100);
     }
 
-    /*
-    private void AbrirGalleria(){
+
+    private void AbrirGalleria(View v){
+
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery, PICK_IMAGE);
     }
 
-     */
+
 
 
     @Override
@@ -232,15 +251,21 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
         popup.setOnMenuItemClickListener((PopupMenu.OnMenuItemClickListener) MainActivity2_ImagenesDePerfil.this);
         popup.inflate(R.menu.menu_seleccion_imagenes);
         popup.show();
+
+        selectionImageView(v);
     }
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
+
         switch (item.getItemId()){
             case R.id.borrar_foto:
                 Toast.makeText(this, R.string.borrar_foto, Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.copiar_foto:
+            case R.id.sacar_foto:
+                Camera();
+                return true;
+            case R.id.galeria:
                 Toast.makeText(this, R.string.copiar_foto, Toast.LENGTH_SHORT).show();
                 return true;
             default:

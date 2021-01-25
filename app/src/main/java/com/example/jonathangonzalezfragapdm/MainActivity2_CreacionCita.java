@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -229,7 +230,32 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
         recogerHora.show();
     }
 
+    public void enviarCita(View view){
 
+    }
+
+    public void anadirCalendario(){
+
+        Intent intent = new Intent(Intent.ACTION_INSERT);
+        intent.setData(CalendarContract.Events.CONTENT_URI);
+        intent.putExtra(CalendarContract.Events.TITLE, "CITA");
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, "Cita con derecho.");
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, LOCATION_SERVICE);
+        intent.putExtra(CalendarContract.Events.ALL_DAY, "true");
+        intent.putExtra(Intent.EXTRA_EMAIL, "Test@test.com");
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //Pasar de una Activity a otra
+        Intent intent = new Intent(this, MainActivity2_Perfil.class);
+        startActivity(intent);
+        //Finalizar Activity
+        finish();
+
+    }
 
     @Override
     protected void onStart() {

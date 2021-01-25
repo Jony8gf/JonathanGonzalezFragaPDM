@@ -65,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         mpMusica.release();
 
         //Intent intent = new Intent(this, MainActivity2_ReiniciarContrasena.class);
-        Intent intent = new Intent(this, MainActivity2_Perfil.class);
+        //Intent intent = new Intent(this, MainActivity2_Perfil.class);
+        Intent intent = new Intent(this, MainActivity2_ImagenesDePerfil.class);
         startActivity(intent);
         //Finalizar Activity
         finish();

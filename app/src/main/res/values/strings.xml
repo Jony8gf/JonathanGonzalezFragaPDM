@@ -117,4 +117,8 @@
     <string name="slot_diamond1">Has conseguido </string>
     <string name="slot_diamond2"> diamantes.</string>
 
+
+    <string name="camara">Camara</string>
+    <string name="imagen">Image de Galeria</string>
+
 </resources>
