@@ -1,5 +1,6 @@
 package com.example.jonathangonzalezfragapdm;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.Instrumentation;
 import android.content.ContentValues;
@@ -47,7 +49,8 @@ import java.util.UUID;
 public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private static final int PICK_IMAGE = 100;
-
+    private static final int PICK_IMAGE_GALERY = 102;
+    private static final int REQUEST_PERMISSION_CODE = 101;
 
     private Button bt_continuar;
     private ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9;
@@ -107,7 +110,31 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
             },100);
 
         }
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            if(ActivityCompat.checkSelfPermission(MainActivity2_ImagenesDePerfil.this, Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
+            }
+            else {
+                ActivityCompat.requestPermissions(MainActivity2_ImagenesDePerfil.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},REQUEST_PERMISSION_CODE);
+            }
+        }else {
+
+        }
+
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if(requestCode == REQUEST_PERMISSION_CODE){
+            if(permissions.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED ){
+
+            }else{
+                Toast.makeText(this,"Habilitar los permisos", Toast.LENGTH_SHORT).show();
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+
 
     public  void onLongSelectorImage(View v){
 
@@ -166,10 +193,11 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
     }
 
 
-    private void AbrirGalleria(View v){
+    private void AbrirGalleria(){
 
-        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(gallery, PICK_IMAGE);
+        Intent gallery = new Intent(Intent.ACTION_GET_CONTENT);
+        gallery.setType("image/*");
+        startActivityForResult(gallery, PICK_IMAGE_GALERY);
     }
 
 
@@ -179,9 +207,18 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
             if (requestCode == 100) {
-                Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
-                aux.setImageBitmap(imageBitmap);
-                cuentaFotos++;
+                if(resultCode == MainActivity2_Perfil.RESULT_OK && data!= null) {
+                    Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
+                    aux.setImageBitmap(imageBitmap);
+                    cuentaFotos++;
+                }
+            }
+            if (requestCode == 102){
+                if(resultCode == MainActivity2_Perfil.RESULT_OK && data!= null){
+                    Uri photo = data.getData();
+                    aux.setImageURI(photo);
+                    cuentaFotos++;
+                }
             }
     }
 
@@ -266,6 +303,7 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
                 Camera();
                 return true;
             case R.id.galeria:
+                AbrirGalleria();
                 Toast.makeText(this, R.string.copiar_foto, Toast.LENGTH_SHORT).show();
                 return true;
             default:
