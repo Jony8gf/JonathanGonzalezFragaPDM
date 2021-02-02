@@ -99,5 +99,18 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF" />
 
+    <ImageButton
+        android:id="@+id/imageButtonVolumen"
+        android:layout_width="68dp"
+        android:layout_height="69dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="17dp"
+        android:backgroundTint="#282827"
+        android:contentDescription="@string/app_name"
+        android:onClick="VolumenOnOff"
+        app:srcCompat="@drawable/ic_volumen_on_foreground" />
+
 
 </RelativeLayout>

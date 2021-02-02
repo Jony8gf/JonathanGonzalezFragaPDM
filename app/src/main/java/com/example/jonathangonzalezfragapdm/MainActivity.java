@@ -12,14 +12,13 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText et_email, et_passwd;
     private String email, passwd;
 
+    private ImageButton btnVolumen;
     private MediaPlayer mpMusica;
+    private boolean volumen = true;
 
     private final static String urlWHO = "https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019/advice-for-public";
 
@@ -54,7 +55,26 @@ public class MainActivity extends AppCompatActivity {
         et_email = findViewById(R.id.editText_UsuarioLogin);
         et_passwd = findViewById(R.id.editText_PasswordLogin);
 
+        //ImageView
+        btnVolumen = findViewById(R.id.imageButtonVolumen);
+
         dialogCovid19();
+
+    }
+
+    public void VolumenOnOff(View view){
+
+        if(volumen){
+            mpMusica.pause();
+            btnVolumen.setImageResource(R.drawable.ic_volumen_off_foreground);
+            //mpMusica.setVolume(0,0);
+            volumen=false;
+        }else{
+            mpMusica.start();
+            btnVolumen.setImageResource(R.drawable.ic_volumen_on_foreground);
+            //mpMusica.setVolume(100,100);
+            volumen=true;
+        }
 
     }
 
