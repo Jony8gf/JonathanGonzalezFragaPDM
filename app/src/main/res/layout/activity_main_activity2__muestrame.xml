@@ -66,7 +66,8 @@
                     android:onClick="seleccion"
                     android:text="@string/busco_relacion"
                     android:textColor="#F3030B"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:textStyle="italic" />
 
                 <RadioButton
                     android:id="@+id/radioButton2radioButton_BuscoNoche"
@@ -76,7 +77,8 @@
                     android:onClick="seleccion"
                     android:text="@string/busco_noche"
                     android:textColor="#6A1B9A"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:textStyle="italic" />
 
                 <RadioButton
                     android:id="@+id/radioButton_BuscoAmistad"
@@ -86,7 +88,8 @@
                     android:onClick="seleccion"
                     android:text="@string/busco_amistad"
                     android:textColor="#69F803"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:textStyle="italic" />
             </RadioGroup>
 
             <TextView
@@ -120,7 +123,8 @@
                         android:onClick="seleccion"
                         android:text="@string/mujeres"
                         android:textColor="@color/pink"
-                        android:textSize="24sp" />
+                        android:textSize="24sp"
+                        android:textStyle="italic" />
 
                     <RadioButton
                         android:id="@+id/radioButton_MuestremeHombres"
@@ -130,7 +134,8 @@
                         android:onClick="seleccion"
                         android:text="@string/hombes"
                         android:textColor="@color/teal_200"
-                        android:textSize="24sp" />
+                        android:textSize="24sp"
+                        android:textStyle="italic" />
 
                     <RadioButton
                         android:id="@+id/radioButton_MuestremeAmobs"
@@ -141,7 +146,8 @@
                         android:text="@string/ambos"
                         android:textColor="#E9EF0C"
                         android:textColorHighlight="#E9EF0C"
-                        android:textSize="24sp" />
+                        android:textSize="24sp"
+                        android:textStyle="italic" />
                 </RadioGroup>
             </LinearLayout>
 

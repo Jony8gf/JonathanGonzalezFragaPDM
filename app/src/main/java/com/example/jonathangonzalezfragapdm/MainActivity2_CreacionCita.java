@@ -50,6 +50,7 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
     final int mes = c.get(Calendar.MONTH);
     final int dia = c.get(Calendar.DAY_OF_MONTH);
     final int anio = c.get(Calendar.YEAR);
+    String fechaFinal;
 
     //Hora
     final int hora = c.get(Calendar.HOUR_OF_DAY);
@@ -128,13 +129,7 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
 
         //Iniciar Task Location
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             return;
         }
         Task<Location> task = client.getLastLocation();
@@ -194,7 +189,7 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
 
                 String diaFormateado = (dayOfMonth < 10)? CERO + String.valueOf(dayOfMonth):String.valueOf(dayOfMonth);
                 String mesFormateado = (mesActual < 10)? CERO + String.valueOf(mesActual):String.valueOf(mesActual);
-
+                fechaFinal = diaFormateado + BARRA + mesFormateado + BARRA + year;
                 inputFecha.setText(diaFormateado + BARRA + mesFormateado + BARRA + year);
 
 
@@ -232,6 +227,7 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
 
     public void enviarCita(View view){
 
+        anadirCalendario();
     }
 
     public void anadirCalendario(){
@@ -239,9 +235,9 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
         Intent intent = new Intent(Intent.ACTION_INSERT);
         intent.setData(CalendarContract.Events.CONTENT_URI);
         intent.putExtra(CalendarContract.Events.TITLE, "CITA");
-        intent.putExtra(CalendarContract.Events.DESCRIPTION, "Cita con derecho.");
-        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, LOCATION_SERVICE);
-        intent.putExtra(CalendarContract.Events.ALL_DAY, "true");
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, "Cita con Alejandra.");
+        //intent.putExtra(CalendarContract.Events.EVENT_LOCATION, LOCATION_SERVICE);
+        intent.putExtra(CalendarContract.Events.EVENT_TIMEZONE, fechaFinal);
         intent.putExtra(Intent.EXTRA_EMAIL, "Test@test.com");
         startActivity(intent);
     }

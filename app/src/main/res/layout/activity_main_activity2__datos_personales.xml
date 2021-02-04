@@ -69,16 +69,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints=""
+            android:clickable="true"
             android:ems="10"
+            android:focusable="false"
             android:hint="@string/ejem_fecha_nacimiento"
             android:inputType="date"
+            android:onClick="obtenerFecha"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="@color/pink"
             android:textSize="24sp"
-            android:clickable="true"
-            android:focusable="false"
-            android:onClick="obtenerFecha"/>
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/textView_Genero"
@@ -101,7 +102,8 @@
                 android:onClick="radioButtonHombre"
                 android:text="@string/gen_hombre"
                 android:textColor="@color/pink"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="italic" />
 
             <RadioButton
                 android:id="@+id/radioButton_Mujer"
@@ -110,7 +112,8 @@
                 android:onClick="radioButtonMujer"
                 android:text="@string/gen_mujer"
                 android:textColor="@color/teal_200"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="italic" />
 
             <RadioButton
                 android:id="@+id/radioButton_Otro"
@@ -119,7 +122,8 @@
                 android:onClick="radioButtonOtro"
                 android:text="@string/gen_otro"
                 android:textColor="#FFFA00"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="italic" />
         </RadioGroup>
 
         <Spinner

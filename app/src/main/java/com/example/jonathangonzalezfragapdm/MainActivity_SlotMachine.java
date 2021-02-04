@@ -155,15 +155,14 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         databaseReference.child("Persona").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                 for (final DataSnapshot snapshot : dataSnapshot.getChildren()){
-
                     databaseReference.child("Persona").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             Usuario user = snapshot.getValue(Usuario.class);
-                            auxDiamond = user.getCorreo();
-                            tvDiamantes.setText(auxDiamond);
+                            auxDiamond = snapshot.child("correo").getValue().toString();
+                            //walletDiamond = Integer.parseInt(auxDiamond);
+                            tvDiamantes.setText("0");
                         }
 
                         @Override
@@ -257,7 +256,7 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
                     }
                 });
             }
-        }, 195, randomLong(150, 400));
+        }, 190, randomLong(150, 400));
 
         wheel3.start();
 
@@ -328,6 +327,7 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         String auxDiamond1, auxDiamond2;
         auxDiamond1 = getString(R.string.slot_diamond1);
         auxDiamond2 = getString(R.string.slot_diamond2);
+
 
         switch (diamonds){
             case 1:

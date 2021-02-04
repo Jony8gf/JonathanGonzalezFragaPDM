@@ -97,7 +97,8 @@
         android:onClick="pasarReinciarContrasena"
         android:text="@string/olvido_contraseña"
         android:textAlignment="center"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textStyle="italic" />
 
     <ImageButton
         android:id="@+id/imageButtonVolumen"
