@@ -102,11 +102,11 @@
 
     <ImageButton
         android:id="@+id/imageButtonVolumen"
-        android:layout_width="68dp"
-        android:layout_height="69dp"
+        android:layout_width="52dp"
+        android:layout_height="46dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="17dp"
         android:backgroundTint="#282827"
         android:contentDescription="@string/app_name"
