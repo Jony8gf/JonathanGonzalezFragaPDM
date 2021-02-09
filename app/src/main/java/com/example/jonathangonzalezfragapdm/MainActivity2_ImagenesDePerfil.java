@@ -193,12 +193,20 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
     }
 
 
-    private void AbrirGalleria(){
+    public void AbrirGalleria(){
 
         Intent gallery = new Intent(Intent.ACTION_GET_CONTENT);
         gallery.setType("image/*");
         startActivityForResult(gallery, PICK_IMAGE_GALERY);
     }
+
+    public void borrarFoto(){
+
+
+        aux.setImageResource(R.drawable.previo);
+
+    }
+
 
 
 
@@ -298,6 +306,7 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
         switch (item.getItemId()){
             case R.id.borrar_foto:
                 Toast.makeText(this, R.string.borrar_foto, Toast.LENGTH_SHORT).show();
+                borrarFoto();
                 return true;
             case R.id.sacar_foto:
                 Camera();

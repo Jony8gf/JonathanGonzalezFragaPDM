@@ -23,7 +23,7 @@
         android:layout_width="157dp"
         android:layout_height="29dp"
         android:layout_marginTop="28dp"
-        android:background="@color/pink_safe"
+        android:background="@drawable/redondear_textview"
         android:text="@string/nombre"
         android:textAlignment="center"
         android:textColor="@color/black"
