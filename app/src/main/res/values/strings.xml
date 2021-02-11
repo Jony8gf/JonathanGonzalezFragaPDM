@@ -112,13 +112,13 @@
     <string name="help_muestrame_busco">Debes seleccionar</string>
 
 
-    <string name="slot_win">Felicidades has ganado una flecha.</string>
-    <string name="slot_loss">Lo siento, no has ganado ninguna flecha, vuelve a intentarlo.</string>
-    <string name="slot_diamond1">Has conseguido </string>
-    <string name="slot_diamond2"> diamantes.</string>
+    <string name="slot_win">Congratulations you have won an arrow.</string>
+    <string name="slot_loss">Sorry, you havent won any arrows, try again.</string>
+    <string name="slot_diamond1">You ve got</string>
+    <string name="slot_diamond2"> diamonds.</string>
 
 
-    <string name="camara">Camara</string>
-    <string name="imagen">Image de Galeria</string>
+    <string name="camara">Camera</string>
+    <string name="imagen">Gallery Image</string>
 
 </resources>
