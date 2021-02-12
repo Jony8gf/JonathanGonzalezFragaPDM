@@ -331,6 +331,16 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
     protected void onResume() {
         super.onResume();
         // La actividad se ha vuelto visible (ahora se "reanuda").
+
+        if (UtilsNetwork.isOnline(this)){
+
+
+
+        }else{
+            Intent intent = new Intent(this,  MainActivity_NoConexionInternet.class);
+            startActivity(intent);
+            finish();
+        }
     }
     @Override
     protected void onPause() {

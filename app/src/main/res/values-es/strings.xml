@@ -105,6 +105,7 @@
 
 
     <string name="help_internet">No dispones de conexión a internet</string>
+    <string name="reintentar_internet">Reintentar</string>
     <string name="requerido">Requerido</string>
     <string name="registrado">Registrado</string>
     <string name="contrasenas_no_coinciden">Las contraseñas no coinciden</string>

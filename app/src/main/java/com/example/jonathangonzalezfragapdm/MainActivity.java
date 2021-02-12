@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -195,14 +197,15 @@ public class MainActivity extends AppCompatActivity {
         //View view = new View(getApplicationContext());
         mpMusica.start();
 
+
         if (UtilsNetwork.isOnline(this)){
 
 
 
         }else{
-            //View v = new View(this.getApplicationContext());
-            //Snackbar.make(v, R.string.help_internet, Snackbar.LENGTH_LONG).show();
-            Toast.makeText(this, R.string.help_internet,Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this,  MainActivity_NoConexionInternet.class);
+            startActivity(intent);
+            finish();
         }
     }
     @Override

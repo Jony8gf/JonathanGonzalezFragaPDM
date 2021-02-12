@@ -118,12 +118,15 @@ public class MainActivity2_Perfil extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // La actividad se ha vuelto visible (ahora se "reanuda").
+
         if (UtilsNetwork.isOnline(this)){
 
 
 
         }else{
-            Toast.makeText(this, R.string.help_internet,Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this,  MainActivity_NoConexionInternet.class);
+            startActivity(intent);
+            finish();
         }
     }
     @Override

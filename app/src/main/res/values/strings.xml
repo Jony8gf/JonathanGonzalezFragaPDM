@@ -104,6 +104,7 @@
 
 
     <string name="help_internet">You do not have an internet connection</string>
+    <string name="reintentar_internet">Retry</string>
     <string name="requerido">Required</string>
     <string name="registrado">Registered</string>
     <string name="contrasenas_no_coinciden">Passwords do not match</string>
