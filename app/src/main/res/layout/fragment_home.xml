@@ -14,7 +14,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:contentDescription="@string/ayuda_fotos"
-        android:src="@drawable/fotoperfil4"
+        android:src="@drawable/fotoperfilprueba"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

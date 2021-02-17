@@ -189,17 +189,17 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
 
         List<ItemModel> items = new ArrayList<>();
-        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Sara", "24", "Jimenezr"));
-        items.add(new ItemModel(R.drawable.fotoperfil2, "Berta", "20", "Malansa"));
-        items.add(new ItemModel(R.drawable.fotoperfil3, "Susana", "27", "Jonguez"));
-        items.add(new ItemModel(R.drawable.fotoperfil4, "Martinar", "19", "Balando"));
-        items.add(new ItemModel(R.drawable.fotoperfil5, "Elena", "25", "Hurtado"));
+        items.add(new ItemModel(R.drawable.fotoperfilprueba, "Sara", "24", "Jimenez"));
+        //items.add(new ItemModel(R.drawable.fotoperfil2, "Berta", "20", "Malansa"));
+        //items.add(new ItemModel(R.drawable.fotoperfil3, "Susana", "27", "Jonguez"));
+        //items.add(new ItemModel(R.drawable.fotoperfil4, "Martinar", "19", "Balando"));
+        //items.add(new ItemModel(R.drawable.fotoperfil5, "Elena", "25", "Hurtado"));
 
-        items.add(new ItemModel(R.drawable.fotoperfil6, "Jose Antonio", "24", "Fernandez"));
-        items.add(new ItemModel(R.drawable.fotoperfil7, "John", "20", "Abascal"));
-        items.add(new ItemModel(R.drawable.fotoperfil8, "Sergio", "27", "Garcia"));
-        items.add(new ItemModel(R.drawable.fotoperfil9, "Manolo", "19", "De la Hoz"));
-        items.add(new ItemModel(R.drawable.fotoperfil10, "Kike", "25", "Moro"));
+        //items.add(new ItemModel(R.drawable.fotoperfil6, "Jose Antonio", "24", "Fernandez"));
+        //items.add(new ItemModel(R.drawable.fotoperfil7, "John", "20", "Abascal"));
+        //items.add(new ItemModel(R.drawable.fotoperfil8, "Sergio", "27", "Garcia"));
+        //items.add(new ItemModel(R.drawable.fotoperfil9, "Manolo", "19", "De la Hoz"));
+        //items.add(new ItemModel(R.drawable.fotoperfil10, "Kike", "25", "Moro"));
         return items;
     }
 
