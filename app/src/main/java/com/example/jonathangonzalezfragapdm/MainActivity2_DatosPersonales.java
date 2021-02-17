@@ -147,13 +147,13 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
 
         if(fecha.equals("")){
 
-            req = String.valueOf(R.string.requerido);
+            req = getString(R.string.requerido);
             et_fecha_nacimiento.setError(req);
 
         }
         if(descripcion.equals("")){
 
-            req = String.valueOf(R.string.requerido);
+            req = getString(R.string.requerido);
             et_descipcion.setError(req);
 
         }

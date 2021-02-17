@@ -36,7 +36,6 @@
                 android:textColor="@color/white"
                 android:textColorHighlight="@color/pink"
                 android:textColorHint="@color/pink"
-                android:background="@drawable/redondear_textview"
                 android:textSize="24sp" />
 
             <EditText

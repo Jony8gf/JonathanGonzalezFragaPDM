@@ -160,7 +160,7 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             Usuario user = snapshot.getValue(Usuario.class);
-                            auxDiamond = snapshot.child("correo").getValue().toString();
+                            //auxDiamond = snapshot.child("correo").getValue().toString();
                             //walletDiamond = Integer.parseInt(auxDiamond);
                             tvDiamantes.setText("0");
                         }

@@ -126,6 +126,15 @@ public class MainActivity2_Registro extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //Pasar de una Activity a otra
+        Intent intent = new Intent(this, MainActivity2_BienvenidaNormas.class);
+        startActivity(intent);
+        //Finalizar Activity
+        finish();
+    }
 
     @Override
     protected void onStart() {
