@@ -27,7 +27,7 @@
     <string name="gen_mujer">Mujer</string>
     <string name="gen_otro">Otro</string>
     <string name="sobre_mi">Sobre mi</string>
-    <string name="des_sobre_mi">Example: I like to go to the cinema and I love nature. (Maximum 140 characters)</string>
+    <string name="des_sobre_mi">app: I like to go to the cinema and I love nature. (Maximum 140 characters)</string>
 
 
     <string name="bienvenida">Te damos la bienvenida a Liebe.</string>
