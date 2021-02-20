@@ -1,8 +1,11 @@
 package com.app.jonathangonzalezfragapdm;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +16,8 @@ import android.widget.Toast;
 public class MainActivity2_BienvenidaNormas extends AppCompatActivity {
 
     private Button bt_aceptar;
+
+    private final static String urlWHO = "https://github.com/Jony8gf/JonathanGonzalezFragaPDM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +46,35 @@ public class MainActivity2_BienvenidaNormas extends AppCompatActivity {
             finish();
         }
         if(id == R.id.menu_contacto){
-            //Mostar Toast
-            Toast.makeText(this, "Enviando e-mail", Toast.LENGTH_SHORT).show();
+            MostrarDialogContacto();
+
         }
 
         return true;
+    }
+
+
+    //Metodo para mostrar un dialog de contacto al usuario
+    public void MostrarDialogContacto(){
+
+        //Creacion de Dialogo
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.ayuda_contacto)
+                .setPositiveButton(R.string.acepto, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(urlWHO));
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Dar a cancelar
+                    }
+                });
+        // Mostrar el dialog
+        builder.show();
+
     }
 
 

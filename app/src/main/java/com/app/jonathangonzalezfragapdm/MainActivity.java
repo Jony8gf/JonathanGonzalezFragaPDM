@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    private HiloInternet hiloInternet = new HiloInternet();
+    //private HiloInternet hiloInternet = new HiloInternet();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,9 +88,10 @@ public class MainActivity extends AppCompatActivity {
         mpMusica.stop();
         mpMusica.release();
 
-        Intent intent = new Intent(this, MainActivity2_ReiniciarContrasena.class);
-        //Intent intent = new Intent(this, MainActivity2_Perfil.class);
+        //Intent intent = new Intent(this, MainActivity2_ReiniciarContrasena.class);
+        Intent intent = new Intent(this, MainActivity2_Perfil.class);
         //Intent intent = new Intent(this, MainActivity2_ImagenesDePerfil.class);
+        //Intent intent = new Intent(this, MainActivity2_DatosPersonales.class);
         startActivity(intent);
         //Finalizar Activity
         finish();

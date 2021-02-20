@@ -66,6 +66,7 @@
     <string name="continuar">Continue</string>
     <string name="atras">Back</string>
     <string name="contacto">Contact</string>
+    <string name="ayuda_contacto">Do you want to access the liebe contact website?</string>
 
     <string name="muestrame">Show me</string>
     <string name="hombes">Men</string>
@@ -121,5 +122,6 @@
 
     <string name="camara">Camera</string>
     <string name="imagen">Gallery Image</string>
+    <string name="persona">Persona</string>
 
 </resources>
