@@ -212,6 +212,7 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
 
 
         aux.setImageResource(R.drawable.previo);
+        cuentaFotos--;
 
     }
 
@@ -288,6 +289,7 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
 
             //Pasar a otra activity
             Intent intent = new Intent(this, MainActivity2_Index.class);
+            intent.putExtra("correo", correo_rec);
             startActivity(intent);
             finish();
 

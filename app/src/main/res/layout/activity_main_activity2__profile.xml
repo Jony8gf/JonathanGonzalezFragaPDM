@@ -40,8 +40,9 @@
         android:layout_height="37dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="314dp"
+        android:layout_marginTop="273dp"
         android:background="@color/pink_safe"
         android:text="@string/sobre_mi"
         android:textAlignment="center"
@@ -49,7 +50,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.14"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView_SobreMi_Profile"
@@ -60,15 +61,14 @@
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="353dp"
+        android:layout_marginTop="312dp"
         android:layout_marginEnd="9dp"
         android:background="#E8DEDE"
         android:text="@string/des_sobre_mi"
         android:textColor="@color/pink"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_ConseguirFlecha"
@@ -76,9 +76,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="59dp"
+        android:layout_marginStart="58dp"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="66dp"
+        android:layout_marginBottom="103dp"
         android:background="@color/purple_200"
         android:onClick="conseguirFlechas"
         android:text="@string/conseguir_flechas"
@@ -123,13 +123,30 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="240dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="63dp"
+        android:layout_marginBottom="98dp"
         android:background="@color/purple_200"
         android:onClick="creacionCita"
         android:text="@string/cita"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.852"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/menuBotonNavegacion_Profile"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/pink"
+        app:itemIconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_navegacion">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </RelativeLayout>

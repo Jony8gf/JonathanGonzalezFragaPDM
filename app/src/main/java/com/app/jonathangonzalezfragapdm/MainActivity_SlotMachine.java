@@ -71,6 +71,8 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
     private Button btn;
     private boolean isStarted;
 
+    String correo_rec;
+
 
     public static final Random RANDOM = new Random();
 
@@ -84,6 +86,8 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__slot_machine);
+
+        correo_rec = getIntent().getStringExtra("correo");
 
         //Asignacion de componentes con layout
         img1 = (ImageView) findViewById(R.id.img1);
@@ -394,6 +398,7 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         super.onBackPressed();
         //Pasar de una Activity a otra
         Intent intent = new Intent(this, MainActivity2_Profile.class);
+        intent.putExtra("correo", correo_rec);
         startActivity(intent);
         //Finalizar Activity
         finish();

@@ -1,9 +1,11 @@
 package com.app.jonathangonzalezfragapdm;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,9 +19,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
 public class MainActivity2_Profile extends AppCompatActivity {
 
-    private TextView tvName;
+    private TextView tvName, tvSobreMi, tvArrows;
     private BottomNavigationView navigationView;
 
     String correo_rec;
@@ -32,26 +38,36 @@ public class MainActivity2_Profile extends AppCompatActivity {
         setContentView(R.layout.activity_main_activity2__profile);
 
         tvName = findViewById(R.id.textView_nombreProfile);
+        tvSobreMi = findViewById(R.id.textView_SobreMi_Profile);
+        tvArrows = findViewById(R.id.textView_NumeroFlecha);
 
-        //correo_rec = getIntent().getStringExtra("correo");
+        //Asignacion de BotonNavigation
+        navigationView = findViewById(R.id.menuBotonNavegacion_Profile);
+
+        correo_rec = getIntent().getStringExtra("correo");
+
+        Toast.makeText(this, correo_rec, Toast.LENGTH_LONG).show();
 
         bbdd = FirebaseDatabase.getInstance().getReference();
 
-        /*
-        bbdd.orderByChild("correo").equalTo(correo_rec).addValueEventListener(new ValueEventListener() {
+        //tvName.setText(correo_rec);
+
+        bbdd.child("Persona").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot datasnapshot: snapshot.getChildren()){
+               for (DataSnapshot datasnapshot: snapshot.getChildren()){
 
                     Usuario user = datasnapshot.getValue(Usuario.class);
 
                     assert user != null;
-                    String correo = user.getCorreo();
-                    Usuario userAux = user;
+                    if(correo_rec.equals(user.getCorreo())){
 
-                    tvName.setText(correo_rec);
+                        tvName.setText(user.getNombre());
+                        tvSobreMi.setText(user.getDescripcion());
+                        tvArrows.setText(String.valueOf(user.getArrows()));
 
-                }
+                    }
+               }
             }
 
             @Override
@@ -60,10 +76,6 @@ public class MainActivity2_Profile extends AppCompatActivity {
             }
         });
 
-
-
-        //Asignacion de BotonNavigation
-        navigationView = findViewById(R.id.menuBotonNavegacion_Perfil);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -85,20 +97,20 @@ public class MainActivity2_Profile extends AppCompatActivity {
 
                 if(item.getItemId() ==  R.id.menu_perfil){
 
+
                 }
-
-
                 return true;
             }
         });
 
-         */
+
 
     }
 
     public void creacionCita(View view){
 
         Intent intent = new Intent(MainActivity2_Profile.this, MainActivity2_CreacionCita.class);
+        intent.putExtra("correo", correo_rec);
         startActivity(intent);
         finish();
     }
@@ -106,6 +118,7 @@ public class MainActivity2_Profile extends AppCompatActivity {
     public void conseguirFlechas(View view){
 
         Intent intent = new Intent(MainActivity2_Profile.this, MainActivity_SlotMachine.class);
+        intent.putExtra("correo", correo_rec);
         startActivity(intent);
         finish();
     }

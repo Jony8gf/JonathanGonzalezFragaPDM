@@ -64,12 +64,17 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
     SupportMapFragment supportMapFragment;
     FusedLocationProviderClient client;
 
+    String correo_rec;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2__creacion_cita);
+
+        correo_rec = getIntent().getStringExtra("correo");
 
         //Asignacion de SupportMapFrgament
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map);
@@ -112,6 +117,7 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
         if(id == R.id.menu_atras){
             //Pasar de una Activity a otra
             Intent intent = new Intent(this, MainActivity2_Profile.class);
+            intent.putExtra("correo", correo_rec);
             startActivity(intent);
             //Finalizar Activity
             finish();
@@ -247,6 +253,7 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
         super.onBackPressed();
         //Pasar de una Activity a otra
         Intent intent = new Intent(this, MainActivity2_Profile.class);
+        intent.putExtra("correo", correo_rec);
         startActivity(intent);
         //Finalizar Activity
         finish();

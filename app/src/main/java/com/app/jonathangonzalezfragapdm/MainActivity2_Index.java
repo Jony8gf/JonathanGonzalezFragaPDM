@@ -84,6 +84,8 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
         correo_rec = getIntent().getStringExtra("correo");
 
+        Toast.makeText(this, correo_rec, Toast.LENGTH_LONG).show();
+
         //Asignacion de BotonNavigation
         navigationView = findViewById(R.id.menuBotonNavegacion_Index);
 
@@ -142,6 +144,7 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
                 if(item.getItemId() ==  R.id.menu_perfil){
                     Intent intent = new Intent(MainActivity2_Index.this, MainActivity2_Profile.class);
+                    intent.putExtra("correo", correo_rec);
                     startActivity(intent);
                     finish();
                 }
