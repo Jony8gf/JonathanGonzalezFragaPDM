@@ -1,15 +1,14 @@
 package com.app.jonathangonzalezfragapdm;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,14 +19,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
-
 public class MainActivity2_Profile extends AppCompatActivity {
 
-    private TextView tvName, tvSobreMi, tvArrows;
+    TextView tvName, tvFechaNac, tvArrows, tvBusco;
     private BottomNavigationView navigationView;
+
+    ImageView imgGenero;
 
     String correo_rec;
 
@@ -39,8 +36,11 @@ public class MainActivity2_Profile extends AppCompatActivity {
         setContentView(R.layout.activity_main_activity2__profile);
 
         tvName = findViewById(R.id.textView_nombreProfile);
-        tvSobreMi = findViewById(R.id.textView_SobreMi_Profile);
+        tvFechaNac = findViewById(R.id.textView_FechaNacimientoProfile);
         tvArrows = findViewById(R.id.textView_NumeroFlecha);
+        tvBusco = findViewById(R.id.textView_BuscoProfile);
+
+        imgGenero = findViewById(R.id.imageView_GeneroProfile);
 
         //Asignacion de BotonNavigation
         navigationView = findViewById(R.id.menuBotonNavegacion_Profile);
@@ -51,7 +51,6 @@ public class MainActivity2_Profile extends AppCompatActivity {
 
         bbdd = FirebaseDatabase.getInstance().getReference();
 
-        //tvName.setText(correo_rec);
 
         bbdd.child("Persona").addValueEventListener(new ValueEventListener() {
             @Override
@@ -64,9 +63,20 @@ public class MainActivity2_Profile extends AppCompatActivity {
                     if(correo_rec.equals(user.getCorreo())){
 
                         tvName.setText(user.getNombre());
-                        tvSobreMi.setText(user.getDescripcion());
                         tvArrows.setText(String.valueOf(user.getArrows()));
+                        tvBusco.setText(tvBusco.getText()+": "+user.getBusco());
+                        tvFechaNac.setText(tvFechaNac.getText()+": "+user.getFecha_nacimiento());
+                        String genero = user.getGenero();
 
+                        if(genero.equals("mujer")){
+                            imgGenero.setImageResource(R.drawable.fem);
+                        }
+                        if(genero.equals("hombre")){
+                            imgGenero.setImageResource(R.drawable.masc);
+                        }
+                        if(genero.equals("otro")){
+                            imgGenero.setImageResource(R.drawable.notbinario);
+                        }
                     }
                }
             }

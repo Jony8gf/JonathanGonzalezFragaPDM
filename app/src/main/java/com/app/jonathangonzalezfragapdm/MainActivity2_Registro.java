@@ -132,7 +132,7 @@ public class MainActivity2_Registro extends AppCompatActivity {
 
         if(chk_politicas.isChecked()){
 
-            if(passwd1.equals(passwd2) && !passwd1.equals("") && 6 >= passwd1.length()){
+            if(passwd1.equals(passwd2) && !passwd1.equals("") && 6 <= passwd1.length()){
 
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, passwd1);
                 Intent intent = new Intent(this, MainActivity2_DatosPersonales.class);
