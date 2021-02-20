@@ -1,18 +1,22 @@
 package com.app.jonathangonzalezfragapdm;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DiffUtil;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.OperationApplicationException;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.net.sip.SipSession;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -33,6 +37,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;
@@ -40,6 +46,9 @@ import com.yuyakaido.android.cardstackview.Direction;
 import com.yuyakaido.android.cardstackview.StackFrom;
 import com.yuyakaido.android.cardstackview.SwipeableMethod;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,12 +68,21 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
     ArrayList<Usuario> listado = new ArrayList<Usuario>();
 
+    FirebaseStorage firebaseStorage;
+    StorageReference storageReference;
+
+    String correo_rec;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2__index);
+
+        firebaseStorage = FirebaseStorage.getInstance();
+        storageReference = firebaseStorage.getReference();
+
+        correo_rec = getIntent().getStringExtra("correo");
 
         //Asignacion de BotonNavigation
         navigationView = findViewById(R.id.menuBotonNavegacion_Index);
@@ -75,6 +93,7 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
         bbdd = FirebaseDatabase.getInstance().getReference();
 
         bbdd.child("Persona").addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot datasnapshot: snapshot.getChildren()){
@@ -85,8 +104,14 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
                     String nombre = user.getNombre();
                     Usuario userAux = user;
 
+                    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    LocalDate fechaNac = LocalDate.parse(userAux.getFecha_nacimiento(), fmt);
+                    LocalDate ahora = LocalDate.now();
+
+                    Period periodo = Period.between(fechaNac, ahora);
+
                     listado.add(userAux);
-                    items.add(new ItemModel(R.drawable.perfilxdefecto, userAux.getNombre() , "24", userAux.getGenero()));
+                    items.add(new ItemModel(R.drawable.perfilxdefecto, userAux.getNombre() , String.valueOf(periodo.getYears()), userAux.getGenero()));
 
                     //Toast.makeText(MainActivity2_Index.this, nombre, Toast.LENGTH_LONG).show();
                 }
@@ -97,37 +122,6 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
             }
         });
-
-        /*
-        bbdd.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                //ArrayAdapter<String> adaptador;
-                //ArrayList<String> listado = new ArrayList<String>();
-
-                for (DataSnapshot datasnapshot: snapshot.getChildren()){
-
-                    Usuario user = datasnapshot.getValue(Usuario.class);
-
-                    assert user != null;
-                    String nombre = user.getNombre();
-                    listado.add(nombre);
-                    Toast.makeText(MainActivity2_Index.this, "Holas", Toast.LENGTH_LONG).show();
-
-                }
-
-                //adaptador = new ArrayAdapter<String>(MainActivity2_Index.this, R.layout.item_card, listado);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-         */
 
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -147,7 +141,7 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
                 }
 
                 if(item.getItemId() ==  R.id.menu_perfil){
-                    Intent intent = new Intent(MainActivity2_Index.this, MainActivity2_Perfil.class);
+                    Intent intent = new Intent(MainActivity2_Index.this, MainActivity2_Profile.class);
                     startActivity(intent);
                     finish();
                 }
@@ -157,18 +151,6 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
             }
         });
 
-        /*
-        bt_report.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                PopupMenu popup = new PopupMenu(MainActivity2_Index.this, v);
-                popup.setOnMenuItemClickListener(MainActivity2_Index.this);
-                popup.inflate(R.menu.menu_report);
-                popup.show();
-                return false;
-            }
-        });
-         */
 
         CardStackView cardStackView = findViewById(R.id.card_stack_view);
         manager = new CardStackLayoutManager(this, new CardStackListener() {
@@ -195,7 +177,7 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
                 // Paginating
                 if (manager.getTopPosition() == adapter.getItemCount() - 5){
-                    paginate();
+                    //paginate();
                 }
 
             }
@@ -237,8 +219,31 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
         cardStackView.setAdapter(adapter);
         cardStackView.setItemAnimator(new DefaultItemAnimator());
 
+        dialogCovid19();
     }
 
+    public void dialogCovid19(){
+
+        Dialog dialog= new Dialog(MainActivity2_Index.this);
+        dialog.setContentView(R.layout.dialog_covid);
+        dialog.setTitle("Covid 19 tips");
+
+        Button btn = findViewById(R.id.btnSaberCovid);
+
+        dialog.show();
+
+
+        CountDownTimer countDownTimer = new CountDownTimer(4000, 1000) {
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
+                dialog.dismiss();
+            }
+        }.start();
+
+    }
 
 
     private void paginate() {
@@ -295,6 +300,10 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
             default:
                 return super.onContextItemSelected(item);
         }
+    }
+
+    public void DownloadWithBytes(){
+        StorageReference imageRefi = storageReference.child("images/liebe.png");
     }
 
     public  void enviarReport(){

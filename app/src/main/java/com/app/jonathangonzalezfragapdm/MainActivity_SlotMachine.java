@@ -393,7 +393,7 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         //Pasar de una Activity a otra
-        Intent intent = new Intent(this, MainActivity2_Perfil.class);
+        Intent intent = new Intent(this, MainActivity2_Profile.class);
         startActivity(intent);
         //Finalizar Activity
         finish();

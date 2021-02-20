@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         mpMusica.release();
 
         //Intent intent = new Intent(this, MainActivity2_ReiniciarContrasena.class);
-        Intent intent = new Intent(this, MainActivity2_Perfil.class);
+        Intent intent = new Intent(this, MainActivity2_Profile.class);
         //Intent intent = new Intent(this, MainActivity2_ImagenesDePerfil.class);
         //Intent intent = new Intent(this, MainActivity2_DatosPersonales.class);
         startActivity(intent);
@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Intent intent = new Intent(MainActivity.this, MainActivity2_Index.class);
+                    intent.putExtra("correo", email);
                     startActivity(intent);
                     //Finalizar Activity
                     finish();

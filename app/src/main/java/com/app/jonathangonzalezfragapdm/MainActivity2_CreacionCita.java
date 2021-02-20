@@ -111,7 +111,7 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
 
         if(id == R.id.menu_atras){
             //Pasar de una Activity a otra
-            Intent intent = new Intent(this, MainActivity2_Perfil.class);
+            Intent intent = new Intent(this, MainActivity2_Profile.class);
             startActivity(intent);
             //Finalizar Activity
             finish();
@@ -246,7 +246,7 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
     public void onBackPressed() {
         super.onBackPressed();
         //Pasar de una Activity a otra
-        Intent intent = new Intent(this, MainActivity2_Perfil.class);
+        Intent intent = new Intent(this, MainActivity2_Profile.class);
         startActivity(intent);
         //Finalizar Activity
         finish();

@@ -109,6 +109,7 @@
     <string name="requerido">Required</string>
     <string name="registrado">Registered</string>
     <string name="contrasenas_no_coinciden">Passwords do not match</string>
+    <string name="contrasenas_caracteres">The password must have a minimum of 6 characters</string>
     <string name="aceptar_usos">You must accept the use policies</string>
     <string name="correo_no">The email address or password is not correct</string>
     <string name="help_muestrame_busco">Debes seleccionar</string>

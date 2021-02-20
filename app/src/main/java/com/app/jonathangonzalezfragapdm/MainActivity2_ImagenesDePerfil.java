@@ -37,6 +37,8 @@ import com.airbnb.lottie.animation.content.Content;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -64,10 +66,16 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
     private Usuario user;
     private View v;
 
+    FirebaseStorage firebaseStorage;
+    StorageReference storageReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2__imagenes_de_perfil);
+
+         firebaseStorage = FirebaseStorage.getInstance();
+         storageReference = firebaseStorage.getReference();
 
         //Asignacion de Button
         bt_continuar = findViewById(R.id.button_ContinuarImagenes);
@@ -215,14 +223,14 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
             if (requestCode == 100) {
-                if(resultCode == MainActivity2_Perfil.RESULT_OK && data!= null) {
+                if(resultCode == MainActivity2_Profile.RESULT_OK && data!= null) {
                     Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
                     aux.setImageBitmap(imageBitmap);
                     cuentaFotos++;
                 }
             }
             if (requestCode == 102){
-                if(resultCode == MainActivity2_Perfil.RESULT_OK && data!= null){
+                if(resultCode == MainActivity2_Profile.RESULT_OK && data!= null){
                     Uri photo = data.getData();
                     aux.setImageURI(photo);
                     cuentaFotos++;
@@ -299,6 +307,8 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
 
         selectionImageView(v);
     }
+
+
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {

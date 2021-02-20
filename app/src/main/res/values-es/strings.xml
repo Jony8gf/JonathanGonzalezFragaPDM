@@ -110,6 +110,7 @@
     <string name="requerido">Requerido</string>
     <string name="registrado">Registrado</string>
     <string name="contrasenas_no_coinciden">Las contraseñas no coinciden</string>
+    <string name="contrasenas_caracteres">La contraseña debe tener minimo 6 caracteres</string>
     <string name="aceptar_usos">Debes aceptar las políticas de uso</string>
     <string name="correo_no">La dirección de correo o la contraseña no es correcto</string>
     <string name="help_muestrame_busco">Debes seleccionar</string>

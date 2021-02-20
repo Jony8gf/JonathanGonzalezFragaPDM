@@ -132,7 +132,7 @@ public class MainActivity2_Registro extends AppCompatActivity {
 
         if(chk_politicas.isChecked()){
 
-            if(passwd1.equals(passwd2) && !passwd1.equals("")){
+            if(passwd1.equals(passwd2) && !passwd1.equals("") && 6 >= passwd1.length()){
 
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, passwd1);
                 Intent intent = new Intent(this, MainActivity2_DatosPersonales.class);
@@ -148,6 +148,7 @@ public class MainActivity2_Registro extends AppCompatActivity {
                 et_passwd1.setText("");
                 et_passwd2.setText("");
                 Toast.makeText(this, R.string.contrasenas_no_coinciden, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.contrasenas_caracteres, Toast.LENGTH_LONG).show();
 
             }
 
