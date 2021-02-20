@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -83,6 +84,7 @@ public class MainActivity2_Profile extends AppCompatActivity {
 
                 if(item.getItemId() ==  R.id.menu_home){
                     Intent intent = new Intent(MainActivity2_Profile.this, MainActivity2_Index.class);
+                    intent.putExtra("correo", correo_rec);
                     startActivity(intent);
                     finish();
                 }
@@ -105,6 +107,32 @@ public class MainActivity2_Profile extends AppCompatActivity {
 
 
 
+    }
+
+    //Metodo mostrar boton volver
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_settings_profile, menu);
+        return true;
+    }
+
+    //Metodo agregar acciones a nuestros botones
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id =item.getItemId();
+
+        if(id == R.id.menu_perfil){
+
+        }
+        if(id == R.id.menu_edit){
+
+        }
+        if(id == R.id.menu_settings){
+            Intent intent = new Intent(MainActivity2_Profile.this, MainActivity2_Settings.class);
+            intent.putExtra("correo", correo_rec);
+            startActivity(intent);
+            finish();
+        }
+
+        return true;
     }
 
     public void creacionCita(View view){

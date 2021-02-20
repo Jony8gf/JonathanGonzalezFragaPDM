@@ -136,6 +136,16 @@ public class MainActivity2_ReiniciarContrasena extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //Pasar de una Activity a otra
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        //Finalizar Activity
+        finish();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         // La actividad se ha vuelto visible (ahora se "reanuda").

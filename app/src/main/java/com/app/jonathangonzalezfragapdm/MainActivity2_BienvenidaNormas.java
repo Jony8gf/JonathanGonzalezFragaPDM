@@ -104,6 +104,17 @@ public class MainActivity2_BienvenidaNormas extends AppCompatActivity {
             finish();
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //Pasar de una Activity a otra
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        //Finalizar Activity
+        finish();
+    }
+
     @Override
     protected void onPause() {
         super.onPause();

@@ -91,6 +91,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Ajustes</string>
+    <string name="eliminar_cuenta">Eliminar cuenta</string>
 
     <string name="menu_home">Perfil</string>
     <string name="menu_gallery">Editar Perfil</string>
