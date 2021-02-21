@@ -140,7 +140,7 @@ public class MainActivity2_DatosPersonales extends AppCompatActivity {
         //Llamada al metodo comprobadorAños
         calcularEdad();
 
-        if(comprobadorAno <= 18){
+        if(comprobadorAno < 18){
 
             Toast.makeText(this, "No dispones de la edad suficiente para registrarte", Toast.LENGTH_LONG).show();
 

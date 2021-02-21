@@ -92,6 +92,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Ajustes</string>
     <string name="eliminar_cuenta">Eliminar cuenta</string>
+    <string name="guardar_cambios">Guardar cambios</string>
 
     <string name="menu_home">Perfil</string>
     <string name="menu_gallery">Editar Perfil</string>

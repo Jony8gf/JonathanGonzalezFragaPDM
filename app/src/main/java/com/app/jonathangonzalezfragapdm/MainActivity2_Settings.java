@@ -78,7 +78,10 @@ public class MainActivity2_Settings extends AppCompatActivity {
             finish();
         }
         if(id == R.id.menu_edit){
-
+            Intent intent = new Intent(MainActivity2_Settings.this, MainActivity2_EditProfile.class);
+            intent.putExtra("correo", correo_rec);
+            startActivity(intent);
+            finish();
         }
         if(id == R.id.menu_settings){
 

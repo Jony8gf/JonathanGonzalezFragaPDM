@@ -114,8 +114,6 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
                     listado.add(userAux);
                     items.add(new ItemModel(R.drawable.perfilxdefecto, userAux.getNombre() , String.valueOf(periodo.getYears()), userAux.getGenero()));
-
-                    //Toast.makeText(MainActivity2_Index.this, nombre, Toast.LENGTH_LONG).show();
                 }
             }
 
