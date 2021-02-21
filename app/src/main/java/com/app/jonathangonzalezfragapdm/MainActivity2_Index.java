@@ -157,6 +157,8 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
         CardStackView cardStackView = findViewById(R.id.card_stack_view);
         manager = new CardStackLayoutManager(this, new CardStackListener() {
+
+
             @Override
             public void onCardDragging(Direction direction, float ratio) {
                 Log.d(TAG, "onCardDragging: d=" + direction.name() + " ratio=" + ratio);
@@ -179,7 +181,7 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
                 }
 
                 // Paginating
-                if (manager.getTopPosition() == adapter.getItemCount() - 5){
+                if (manager.getTopPosition() == adapter.getItemCount()){
                     //paginate();
                 }
 
@@ -260,15 +262,6 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
 
     private List<ItemModel> addList() {
-
-        /*
-        for (int i = 0; i < listado.size(); i++){
-            usuarioAux.setNombre(listado.get(i).getNombre());
-            usuarioAux.setGenero(listado.get(i).getGenero());
-            items.add(new ItemModel(R.drawable.fotoperfilprueba, usuarioAux.getNombre() , "24", usuarioAux.getGenero()));
-        }
-
-         */
 
         //items.add(new ItemModel(R.drawable.fotoperfilprueba, "TT" , "24", "Mujer"));
         //items.add(new ItemModel(R.drawable.fotoperfilprueba, "Sara", "24", "Jimenez"));
