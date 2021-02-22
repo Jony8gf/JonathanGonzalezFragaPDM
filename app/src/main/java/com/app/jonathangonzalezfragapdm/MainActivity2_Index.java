@@ -56,7 +56,7 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
     private static final String TAG = "MainActivity";
     private CardStackLayoutManager manager;
-    private CardStackAdapter adapter;
+    private CardStackAdapter adapter;;
     private BottomNavigationView navigationView;
     private Button bt_report;
 
@@ -93,35 +93,6 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
         bt_report = findViewById(R.id.button_report);
 
         bbdd = FirebaseDatabase.getInstance().getReference();
-
-        bbdd.child("Persona").addValueEventListener(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot datasnapshot: snapshot.getChildren()){
-
-                    Usuario user = datasnapshot.getValue(Usuario.class);
-
-                    assert user != null;
-                    String nombre = user.getNombre();
-                    Usuario userAux = user;
-
-                    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                    LocalDate fechaNac = LocalDate.parse(userAux.getFecha_nacimiento(), fmt);
-                    LocalDate ahora = LocalDate.now();
-
-                    Period periodo = Period.between(fechaNac, ahora);
-
-                    listado.add(userAux);
-                    items.add(new ItemModel(R.drawable.perfilxdefecto, userAux.getNombre() , String.valueOf(periodo.getYears()), userAux.getGenero()));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -207,6 +178,7 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
                 Log.d(TAG, "onCardAppeared: " + position + ", nombre: " + tv.getText());
             }
         });
+
         manager.setStackFrom(StackFrom.None);
         manager.setVisibleCount(3);
         manager.setTranslationInterval(8.0f);
@@ -222,7 +194,7 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
         cardStackView.setAdapter(adapter);
         cardStackView.setItemAnimator(new DefaultItemAnimator());
 
-        dialogCovid19();
+        //dialogCovid19();
     }
 
     public void dialogCovid19(){
@@ -261,19 +233,36 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
 
     private List<ItemModel> addList() {
 
-        //items.add(new ItemModel(R.drawable.fotoperfilprueba, "TT" , "24", "Mujer"));
-        //items.add(new ItemModel(R.drawable.fotoperfilprueba, "Sara", "24", "Jimenez"));
-        //items.add(new ItemModel(R.drawable.fotoperfilprueba, , "24", "Jimenez"));
-        //items.add(new ItemModel(R.drawable.fotoperfil2, "Berta", "20", "Malansa"));
-        //items.add(new ItemModel(R.drawable.fotoperfil3, "Susana", "27", "Jonguez"));
-        //items.add(new ItemModel(R.drawable.fotoperfil4, "Martinar", "19", "Balando"));
-        //items.add(new ItemModel(R.drawable.fotoperfil5, "Elena", "25", "Hurtado"));
+        bbdd.child("Persona").addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot datasnapshot: snapshot.getChildren()){
 
-        //items.add(new ItemModel(R.drawable.fotoperfil6, "Jose Antonio", "24", "Fernandez"));
-        //items.add(new ItemModel(R.drawable.fotoperfil7, "John", "20", "Abascal"));
-        //items.add(new ItemModel(R.drawable.fotoperfil8, "Sergio", "27", "Garcia"));
-        //items.add(new ItemModel(R.drawable.fotoperfil9, "Manolo", "19", "De la Hoz"));
-        //items.add(new ItemModel(R.drawable.fotoperfil10, "Kike", "25", "Moro"));
+                    Usuario user = datasnapshot.getValue(Usuario.class);
+
+                    assert user != null;
+                    String nombre = user.getNombre();
+                    Usuario userAux = user;
+
+                    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    LocalDate fechaNac = LocalDate.parse(userAux.getFecha_nacimiento(), fmt);
+                    LocalDate ahora = LocalDate.now();
+
+                    Period periodo = Period.between(fechaNac, ahora);
+
+                    listado.add(userAux);
+                    items.add(new ItemModel(R.drawable.perfilxdefecto, userAux.getNombre() , String.valueOf(periodo.getYears()), userAux.getGenero()));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        //items.add(new ItemModel(R.drawable.fotoperfilprueba, "TT" , "24", "Mujer"));
 
         return items;
     }

@@ -1,16 +1,12 @@
 package com.app.jonathangonzalezfragapdm;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,20 +15,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 
 public class MainActivity2_Settings extends AppCompatActivity {
 
@@ -42,7 +33,9 @@ public class MainActivity2_Settings extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    DatabaseReference bbdd;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +43,11 @@ public class MainActivity2_Settings extends AppCompatActivity {
         setContentView(R.layout.activity_main_activity2__settings);
 
         mAuth = FirebaseAuth.getInstance();
-        bbdd = FirebaseDatabase.getInstance().getReference();
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        //firebaseDatabase.setPersistenceEnabled(true);
+        databaseReference = firebaseDatabase.getReference();
+
 
         user = findViewById(R.id.username);
         passwd = findViewById(R.id.password);
@@ -102,21 +99,24 @@ public class MainActivity2_Settings extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
 
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                    Query applesQuery = ref.child("Persona").orderByChild("correo").equalTo(correo_rec);
-
-                    applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                    databaseReference.child("Persona").child("uid").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for (DataSnapshot appleSnapshot: snapshot.getChildren()) {
+                            for (DataSnapshot datasnapshot: snapshot.getChildren()){
 
-                                    appleSnapshot.getRef().removeValue();
+                                Usuario user = datasnapshot.getValue(Usuario.class);
+
+                                assert user != null;
+                                String correo = user.getCorreo();
+
+                                if (correo_rec.equals(correo)){
+                                    //databaseReference.child("uid").child(user.getUid()).removeValue();
+                                    Toast.makeText(MainActivity2_Settings.this, "Son Iguales", Toast.LENGTH_LONG).show();
                                     startActivity(new Intent(MainActivity2_Settings.this, MainActivity.class));
                                     finish();
-
                                 }
                             }
-
+                        }
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {

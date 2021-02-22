@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(MainActivity.this, MainActivity2_Index.class);
+                    Intent intent = new Intent(MainActivity.this, MainActivity2_Profile.class);
                     intent.putExtra("correo", email);
                     startActivity(intent);
                     //Finalizar Activity
