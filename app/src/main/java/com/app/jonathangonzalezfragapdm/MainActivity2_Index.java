@@ -240,19 +240,25 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
                 for (DataSnapshot datasnapshot: snapshot.getChildren()){
 
                     Usuario user = datasnapshot.getValue(Usuario.class);
-
                     assert user != null;
-                    String nombre = user.getNombre();
-                    Usuario userAux = user;
 
-                    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                    LocalDate fechaNac = LocalDate.parse(userAux.getFecha_nacimiento(), fmt);
-                    LocalDate ahora = LocalDate.now();
+                    if(correo_rec.equals(user.getCorreo())){
 
-                    Period periodo = Period.between(fechaNac, ahora);
+                    }else {
 
-                    listado.add(userAux);
-                    items.add(new ItemModel(R.drawable.perfilxdefecto, userAux.getNombre() , String.valueOf(periodo.getYears()), userAux.getGenero()));
+                        String nombre = user.getNombre();
+                        Usuario userAux = user;
+
+                        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                        LocalDate fechaNac = LocalDate.parse(userAux.getFecha_nacimiento(), fmt);
+                        LocalDate ahora = LocalDate.now();
+
+                        Period periodo = Period.between(fechaNac, ahora);
+
+                        listado.add(userAux);
+                        items.add(new ItemModel(R.drawable.perfilxdefecto, userAux.getNombre() , String.valueOf(periodo.getYears()), userAux.getGenero()));
+
+                    }
                 }
             }
 
