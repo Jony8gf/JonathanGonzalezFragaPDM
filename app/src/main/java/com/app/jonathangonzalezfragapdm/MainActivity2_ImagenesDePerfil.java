@@ -288,7 +288,7 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
             crearUsuario();
 
             //Pasar a otra activity
-            Intent intent = new Intent(this, MainActivity2_Index.class);
+            Intent intent = new Intent(this, MainActivity2_Profile.class);
             intent.putExtra("correo", correo_rec);
             startActivity(intent);
             finish();
