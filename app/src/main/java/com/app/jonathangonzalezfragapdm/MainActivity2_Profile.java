@@ -103,9 +103,11 @@ public class MainActivity2_Profile extends AppCompatActivity {
                     Toast.makeText(MainActivity2_Profile.this, "Has pulsado Mensajes", Toast.LENGTH_SHORT).show();
                 }
 
-                if(item.getItemId() ==  R.id.menu_notificaciones){
-                    Toast.makeText(MainActivity2_Profile.this, "Has pulsado Notificaciones", Toast.LENGTH_SHORT).show();
-                }
+                if(item.getItemId() ==  R.id.menu_slotmachine){
+                    Intent intent = new Intent(MainActivity2_Profile.this, MainActivity_SlotMachine.class);
+                    intent.putExtra("correo", correo_rec);
+                    startActivity(intent);
+                    finish();}
 
                 if(item.getItemId() ==  R.id.menu_perfil){
 
@@ -152,14 +154,6 @@ public class MainActivity2_Profile extends AppCompatActivity {
     public void creacionCita(View view){
 
         Intent intent = new Intent(MainActivity2_Profile.this, MainActivity2_CreacionCita.class);
-        intent.putExtra("correo", correo_rec);
-        startActivity(intent);
-        finish();
-    }
-
-    public void conseguirFlechas(View view){
-
-        Intent intent = new Intent(MainActivity2_Profile.this, MainActivity_SlotMachine.class);
         intent.putExtra("correo", correo_rec);
         startActivity(intent);
         finish();

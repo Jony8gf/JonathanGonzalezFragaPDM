@@ -2,14 +2,17 @@ package com.app.jonathangonzalezfragapdm;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -38,6 +41,7 @@ import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd;
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -47,6 +51,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicMarkableReference;
 
@@ -54,6 +61,9 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
 
     private LottieAnimationView lottieAnim;
     private DatabaseReference databaseReference;
+    Usuario userAux;
+
+    private BottomNavigationView navigationView;
 
     //Creacion de Objeto InterstitialAd
     private InterstitialAd mInterstitialAd;
@@ -88,6 +98,7 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         setContentView(R.layout.activity_main__slot_machine);
 
         correo_rec = getIntent().getStringExtra("correo");
+        Toast.makeText(this, correo_rec, Toast.LENGTH_LONG).show();
 
         //Asignacion de componentes con layout
         img1 = (ImageView) findViewById(R.id.img1);
@@ -95,6 +106,9 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         img3 = (ImageView) findViewById(R.id.img3);
         btn = (Button) findViewById(R.id.btnPlay);
         tvDiamantes = (TextView) findViewById(R.id.textView_Diamantes);
+
+        //Asignacion de BotonNavigation
+        navigationView = findViewById(R.id.menuBotonNavegacion_Slot);
 
 
         lottieAnim = (LottieAnimationView) findViewById(R.id.animation_win_slotMachine);
@@ -135,20 +149,55 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-
-        //databaseReference.child("Persona").push().setValue(user);
         databaseReference.child("Persona").addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    //auxDiamond = snapshot.child("MMquV8nwYwIMwoV8BZH").child("correo").getValue().toString();
-                    //tvDiamantes.setText(auxDiamond);
+                for (DataSnapshot datasnapshot: snapshot.getChildren()){
+
+                    Usuario user = datasnapshot.getValue(Usuario.class);
+                    assert user != null;
+
+                    if(correo_rec.equals(user.getCorreo())){
+
+                        userAux = user;
+
+                    }
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                if(item.getItemId() ==  R.id.menu_home){
+                    Intent intent = new Intent(MainActivity_SlotMachine.this, MainActivity2_Index.class);
+                    intent.putExtra("correo", correo_rec);
+                    startActivity(intent);
+                    finish();
+                }
+
+                if(item.getItemId() ==  R.id.menu_msg){
+                    Toast.makeText(MainActivity_SlotMachine.this, "Has pulsado Mensajes", Toast.LENGTH_SHORT).show();
+                }
+
+                if(item.getItemId() ==  R.id.menu_slotmachine){
+
+                }
+
+                if(item.getItemId() ==  R.id.menu_perfil){
+                    Intent intent = new Intent(MainActivity_SlotMachine.this, MainActivity2_Profile.class);
+                    intent.putExtra("correo", correo_rec);
+                    startActivity(intent);
+                    finish();
+                }
+                return true;
             }
         });
 

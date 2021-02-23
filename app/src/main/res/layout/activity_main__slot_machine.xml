@@ -57,27 +57,42 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="89dp"
+        android:layout_marginTop="123dp"
         android:shadowColor="#73EAD2"
         android:text="@string/numero_flechas"
         android:textAlignment="center"
         android:textSize="30sp"
-        app:drawableStartCompat="@drawable/diamante"
-        />
+        app:drawableStartCompat="@drawable/diamante" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="390dp"
         android:layout_height="86dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="542dp"
+        android:layout_marginTop="1dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-8043381776244583/9427752515"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/menuBotonNavegacion_Slot"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/pink"
+        app:itemIconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_navegacion">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </RelativeLayout>

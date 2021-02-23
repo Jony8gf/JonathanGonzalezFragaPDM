@@ -45,6 +45,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
@@ -184,6 +185,10 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
 
         //Incorporamos datos a la base de datos
         databaseReference.child("Persona").child(user.getUid()).setValue(user);
+
+        //ArrayList<Usuario> lp = new ArrayList<>();
+        //ListaUsuarios lu = new ListaUsuarios(user.getCorreo(),lp);
+        //databaseReference.child("ListaNotificaciones").child(user.getCorreo()).setValue(lu);
 
     }
 

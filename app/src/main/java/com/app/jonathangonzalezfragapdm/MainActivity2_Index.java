@@ -95,35 +95,6 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
         bbdd = FirebaseDatabase.getInstance().getReference();
 
 
-        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                if(item.getItemId() ==  R.id.menu_home){
-
-                }
-
-                if(item.getItemId() ==  R.id.menu_msg){
-                    Toast.makeText(MainActivity2_Index.this, "Has pulsado Mensajes", Toast.LENGTH_SHORT).show();
-                }
-
-                if(item.getItemId() ==  R.id.menu_notificaciones){
-                    Toast.makeText(MainActivity2_Index.this, "Has pulsado Notificaciones", Toast.LENGTH_SHORT).show();
-                }
-
-                if(item.getItemId() ==  R.id.menu_perfil){
-                    Intent intent = new Intent(MainActivity2_Index.this, MainActivity2_Profile.class);
-                    intent.putExtra("correo", correo_rec);
-                    startActivity(intent);
-                    finish();
-                }
-
-
-                return true;
-            }
-        });
-
-
         CardStackView cardStackView = findViewById(R.id.card_stack_view);
         manager = new CardStackLayoutManager(this, new CardStackListener() {
 
@@ -195,6 +166,37 @@ public class MainActivity2_Index extends AppCompatActivity implements PopupMenu.
         cardStackView.setItemAnimator(new DefaultItemAnimator());
 
         //dialogCovid19();
+
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                if(item.getItemId() ==  R.id.menu_home){
+
+                }
+
+                if(item.getItemId() ==  R.id.menu_msg){
+                    Toast.makeText(MainActivity2_Index.this, "Has pulsado Mensajes", Toast.LENGTH_SHORT).show();
+                }
+
+                if(item.getItemId() == R.id.menu_slotmachine){
+                    Intent intent = new Intent(MainActivity2_Index.this, MainActivity_SlotMachine.class);
+                    intent.putExtra("correo", correo_rec);
+                    startActivity(intent);
+                    finish();
+                }
+
+                if(item.getItemId() ==  R.id.menu_perfil){
+                    Intent intent = new Intent(MainActivity2_Index.this, MainActivity2_Profile.class);
+                    intent.putExtra("correo", correo_rec);
+                    startActivity(intent);
+                    finish();
+                }
+
+
+                return true;
+            }
+        });
     }
 
     public void dialogCovid19(){

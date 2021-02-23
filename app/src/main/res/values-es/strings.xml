@@ -126,5 +126,6 @@
     <string name="camara">Cámara</string>
     <string name="imagen">Imagen de Galería</string>
     <string name="persona">Persona</string>
+    <string name="slotmachine">Slot Machine</string>
 
 </resources>

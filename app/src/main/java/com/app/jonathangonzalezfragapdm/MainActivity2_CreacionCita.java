@@ -1,6 +1,7 @@
 package com.app.jonathangonzalezfragapdm;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -8,9 +9,11 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.view.Menu;
@@ -38,6 +41,7 @@ import java.util.Calendar;
 
 public class MainActivity2_CreacionCita extends AppCompatActivity implements View.OnClickListener {
 
+    private final static String urlWHO = "https://github.com/Jony8gf/JonathanGonzalezFragaPDM";
 
     private static final String CERO = "0";
     private static final String DOS_PUNTOS = ":";
@@ -124,7 +128,7 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
         }
         if(id == R.id.menu_contacto){
             //Mostar Toast
-            Toast.makeText(this, "Enviando e-mail", Toast.LENGTH_SHORT).show();
+            MostrarDialogContacto();
         }
 
         return true;
@@ -246,6 +250,29 @@ public class MainActivity2_CreacionCita extends AppCompatActivity implements Vie
         intent.putExtra(CalendarContract.Events.EVENT_TIMEZONE, fechaFinal);
         intent.putExtra(Intent.EXTRA_EMAIL, "Test@test.com");
         startActivity(intent);
+    }
+
+    //Metodo para mostrar un dialog de contacto al usuario
+    public void MostrarDialogContacto(){
+
+        //Creacion de Dialogo
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.ayuda_contacto)
+                .setPositiveButton(R.string.acepto, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(urlWHO));
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Dar a cancelar
+                    }
+                });
+        // Mostrar el dialog
+        builder.show();
+
     }
 
     @Override
