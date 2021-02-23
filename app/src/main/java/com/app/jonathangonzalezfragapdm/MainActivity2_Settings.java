@@ -1,11 +1,13 @@
 package com.app.jonathangonzalezfragapdm;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,9 +27,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
 public class MainActivity2_Settings extends AppCompatActivity {
 
     String correo_rec;
+    Usuario userAux;
 
     private EditText user, passwd;
 
@@ -54,6 +61,29 @@ public class MainActivity2_Settings extends AppCompatActivity {
 
         correo_rec = getIntent().getStringExtra("correo");
 
+        databaseReference.child("Persona").addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot datasnapshot: snapshot.getChildren()){
+
+                    userAux = datasnapshot.getValue(Usuario.class);
+                    assert userAux != null;
+
+                    if(correo_rec.equals(userAux.getCorreo())){
+
+                         Toast.makeText(MainActivity2_Settings.this, userAux.getNombre(), Toast.LENGTH_LONG).show();
+                         Toast.makeText(MainActivity2_Settings.this, userAux.getCorreo(), Toast.LENGTH_LONG).show();
+                         Toast.makeText(MainActivity2_Settings.this, userAux.getUid(), Toast.LENGTH_LONG).show();
+
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         Toast.makeText(this, correo_rec, Toast.LENGTH_LONG).show();
     }
@@ -99,30 +129,10 @@ public class MainActivity2_Settings extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
 
-                    databaseReference.child("Persona").child("uid").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for (DataSnapshot datasnapshot: snapshot.getChildren()){
 
-                                Usuario user = datasnapshot.getValue(Usuario.class);
-
-                                assert user != null;
-                                String correo = user.getCorreo();
-
-                                if (correo_rec.equals(correo)){
-                                    //databaseReference.child("uid").child(user.getUid()).removeValue();
-                                    Toast.makeText(MainActivity2_Settings.this, "Son Iguales", Toast.LENGTH_LONG).show();
-                                    startActivity(new Intent(MainActivity2_Settings.this, MainActivity.class));
-                                    finish();
-                                }
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
+                    databaseReference.child("Persona").child(userAux.getUid()).setValue(null);
+                    startActivity(new Intent(MainActivity2_Settings.this, MainActivity.class));
+                    finish();
 
                 } else {
                     Toast.makeText(MainActivity2_Settings.this, R.string.correo_no, Toast.LENGTH_LONG).show();

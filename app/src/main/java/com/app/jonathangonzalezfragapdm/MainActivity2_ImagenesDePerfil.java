@@ -183,7 +183,7 @@ public class MainActivity2_ImagenesDePerfil extends AppCompatActivity implements
         user.setLongitid(0);
 
         //Incorporamos datos a la base de datos
-        databaseReference.child("Persona").push().setValue(user);
+        databaseReference.child("Persona").child(user.getUid()).setValue(user);
 
     }
 

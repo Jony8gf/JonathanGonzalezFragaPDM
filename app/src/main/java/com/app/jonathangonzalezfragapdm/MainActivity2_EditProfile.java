@@ -134,33 +134,33 @@ public class MainActivity2_EditProfile extends AppCompatActivity {
 
                         String sexo = userAux.getGenero();
                         switch (sexo){
-                            case "mujer": rb_mujeres.setChecked(true);
+                            case "mujer": rb_mujeres.setChecked(true); aux_muestrame = "mujer";
                                 break;
-                            case "hombre": rb_hombres.setChecked(true);
+                            case "hombre": rb_hombres.setChecked(true); aux_muestrame = "hombre";
                                 break;
-                            case "otro": rb_otro.setChecked(true);
+                            case "otro": rb_otro.setChecked(true); aux_muestrame = "otro";
                                 break;
                             default:
                         }
 
                         String muestrame = userAux.getMuestrame();
                         switch (muestrame){
-                            case "mujeres": rb_muestraMujeres.setChecked(true);; spinner.setVisibility(View.INVISIBLE);
+                            case "mujeres": rb_muestraMujeres.setChecked(true); spinner.setVisibility(View.INVISIBLE); aux_muestrame = "hombres";
                                 break;
-                            case "hombres": rb_muestraHombres.setChecked(true);; spinner.setVisibility(View.INVISIBLE);
+                            case "hombres": rb_muestraHombres.setChecked(true); spinner.setVisibility(View.INVISIBLE); aux_muestrame = "mujeres";
                                 break;
-                            case "ambos": rb_muestraAmbos.setChecked(true);;  spinner.setVisibility(View.VISIBLE);
+                            case "ambos": rb_muestraAmbos.setChecked(true); spinner.setVisibility(View.VISIBLE); aux_muestrame = "ambos";
                                 break;
                             default:
                         }
 
                         String busco = userAux.getBusco();
                         switch (busco){
-                            case "noche": rb_lio.setChecked(true);;
+                            case "noche": rb_lio.setChecked(true); aux_busco = "noche";
                                 break;
-                            case "relacion": rb_relacion.setChecked(true);;
+                            case "relacion": rb_relacion.setChecked(true); aux_busco = "relacion";
                                 break;
-                            case "amistad": rb_amistad.setChecked(true);;
+                            case "amistad": rb_amistad.setChecked(true); aux_busco = "amistad";
                                 break;
                             default:
                         }
@@ -190,19 +190,23 @@ public class MainActivity2_EditProfile extends AppCompatActivity {
 
             user.setNombre(tvName.getText().toString());
             user.setGenero(aux_genero);
+
             user.setMuestrame(aux_muestrame);
             user.setBusco(aux_busco);
             user.setFecha_nacimiento(tvFecha.getText().toString());
 
             if (comprobadorAno < 18) {
 
+
                 Toast.makeText(this, "No dispones de la edad suficiente", Toast.LENGTH_LONG).show();
 
             } else {
 
+                Toast.makeText(this, user.getUid(), Toast.LENGTH_LONG).show();
+                bbdd.child("Persona").child(user.getUid()).setValue(null);
+                bbdd.child("Persona").child(user.getUid()).setValue(user);
+                //bbdd.child("Persona").push().setValue(user);
                 //actualizar(user);
-                Toast.makeText(this, "Update", Toast.LENGTH_LONG).show();
-
 
             }
         }
