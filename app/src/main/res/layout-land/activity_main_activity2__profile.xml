@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView_FotosProfile"
+        android:layout_width="131dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:contentDescription="@string/ayuda_fotos"
+        android:src="@drawable/perfilxdefecto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView_nombreProfile"
+        android:layout_width="157dp"
+        android:layout_height="29dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="301dp"
+        android:background="@drawable/redondear_textview"
+        android:text="@string/nombre"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_SobreMiProfile"
+        android:layout_width="198dp"
+        android:layout_height="37dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="246dp"
+        android:layout_marginTop="153dp"
+        android:background="@color/pink_safe"
+        android:text="@string/sobre_mi"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_FechaNacimientoProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="191dp"
+        android:layout_marginEnd="7dp"
+        android:background="#E8DEDE"
+        android:text="@string/fecha_nacimiento"
+        android:textColor="@color/pink"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_BuscoProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginEnd="7dp"
+        android:background="#E8DEDE"
+        android:text="@string/busco"
+        android:textColor="@color/pink"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_FlechasDisponible"
+        android:layout_width="41dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="412dp"
+        android:contentDescription="@string/flecha"
+        android:src="@drawable/index_cupido" />
+
+    <TextView
+        android:id="@+id/textView_NumeroFlecha"
+        android:layout_width="57dp"
+        android:layout_height="49dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="348dp"
+        android:text="@string/numero_flechas"
+        android:textAlignment="center"
+        android:textColor="@color/pink"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_creacioncitas"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="106dp"
+        android:layout_height="53dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="441dp"
+        android:background="@color/purple_200"
+        android:onClick="creacionCita"
+        android:text="@string/cita"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/menuBotonNavegacion_Profile"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/pink"
+        app:itemIconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_navegacion">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <ImageView
+        android:id="@+id/imageView_GeneroProfile"
+        android:layout_width="46dp"
+        android:layout_height="29dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/genero"
+        app:srcCompat="@drawable/camara" />
+
+
+</RelativeLayout>
