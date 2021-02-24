@@ -18,6 +18,8 @@
     <string name="entendido">De acuerdo</string>
     <string name="tips">Toma las precauciones adecuadas e infórmate bien para protegerte y cuidar de quienes te rodean.</string>
     <string name="sabermas">Saber más</string>
+    <string name="cambiar_diamantes_flechas">Cambiar diamantes a flechas</string>
+    <string name="info_cambio">No dispones de diamantes suficientes, 10 Diamantes = 1 Flecha</string>
 
     <string name="datos_personales">Datos Personales</string>
     <string name="fecha_nacimiento">Fecha Nacimiento</string>

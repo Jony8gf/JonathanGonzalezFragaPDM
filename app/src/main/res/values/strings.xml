@@ -17,6 +17,8 @@
     <string name="entendido">Agree</string>
     <string name="tips">Take the proper precautions and educate yourself well to protect yourself and take care of those around you.</string>
     <string name="sabermas">Know more</string>
+    <string name="cambiar_diamantes_flechas">Change diamonds to arrows</string>
+    <string name="info_cambio">You do not have enough diamonds, 10 Diamonds = 1 Arrow</string>
 
 
     <string name="datos_personales">Personal information</string>

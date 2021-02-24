@@ -1,7 +1,6 @@
 package com.app.jonathangonzalezfragapdm;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +10,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -24,26 +22,14 @@ import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.OnPaidEventListener;
-import com.google.android.gms.ads.OnUserEarnedRewardListener;
-import com.google.android.gms.ads.ResponseInfo;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
-import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd;
-import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,11 +37,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.Random;
-import java.util.concurrent.atomic.AtomicMarkableReference;
 
 public class MainActivity_SlotMachine extends AppCompatActivity {
 
@@ -81,6 +63,8 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
     private Button btn;
     private boolean isStarted;
 
+
+
     String correo_rec;
 
 
@@ -105,6 +89,7 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         img2 = (ImageView) findViewById(R.id.img2);
         img3 = (ImageView) findViewById(R.id.img3);
         btn = (Button) findViewById(R.id.btnPlay);
+
         tvDiamantes = (TextView) findViewById(R.id.textView_Diamantes);
 
         //Asignacion de BotonNavigation
@@ -113,8 +98,6 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
 
         lottieAnim = (LottieAnimationView) findViewById(R.id.animation_win_slotMachine);
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
-        diamantesDisponibles();
 
 
         //Preparacion de y asignacion de id
@@ -161,6 +144,9 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
                     if(correo_rec.equals(user.getCorreo())){
 
                         userAux = user;
+                        String diamantesActuales = String.valueOf(user.getDiamonds());
+                        tvDiamantes.setText(diamantesActuales);
+                        walletDiamond = Integer.parseInt(String.valueOf(user.getDiamonds()));
 
                     }
                 }
@@ -203,36 +189,24 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
 
     }
 
-    public  void diamantesDisponibles(){
+    public  void cambiarDiamantesAFlechas(View view){
 
-        databaseReference.child("Persona").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (final DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    databaseReference.child("Persona").child(snapshot.getKey()).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Usuario user = snapshot.getValue(Usuario.class);
-                            //auxDiamond = snapshot.child("correo").getValue().toString();
-                            //walletDiamond = Integer.parseInt(auxDiamond);
-                            tvDiamantes.setText("0");
-                        }
+        if(walletDiamond >= 10){
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                    });
-                }
-            }
+            int flechas = Integer.parseInt(String.valueOf(userAux.getArrows()));
+            userAux.setArrows(flechas+1);
+            walletDiamond = walletDiamond - 10;
+            userAux.setDiamonds(walletDiamond);
+            tvDiamantes.setText(String.valueOf(walletDiamond));
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            databaseReference.child("Persona").child(userAux.getUid()).setValue(null);
+            databaseReference.child("Persona").child(userAux.getUid()).setValue(userAux);
 
-            }
-        });
+        }else{
+            Toast.makeText(this, R.string.info_cambio, Toast.LENGTH_LONG).show();
+        }
     }
-
 
 
     public void tiradaSlot(View v){
@@ -241,11 +215,6 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
 
         loadRewardedVideoAd();
 
-        if(walletDiamond > 10){
-
-
-
-        }else{
             if (isStarted) {
 
                 CountDownTimer ct1 = new CountDownTimer(7000, 1000) {
@@ -257,13 +226,12 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
                     public void onFinish() {
 
                         stopWheells();
-                        walletDiamond=walletDiamond-10;
 
                     }
 
                 }.start();
             }
-        }
+
     }
 
 
@@ -360,6 +328,11 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         dialog.setContentView(R.layout.dialog_win_slot_machine);
         dialog.setTitle("Get Arrows");
         dialog.show();
+        int flechas = Integer.parseInt(String.valueOf(userAux.getArrows()));
+        userAux.setArrows(flechas+1);
+        databaseReference.child("Persona").child(userAux.getUid()).setValue(null);
+        databaseReference.child("Persona").child(userAux.getUid()).setValue(userAux);
+
     }
 
 
@@ -376,32 +349,28 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
         Dialog dialog= new Dialog(this);
         dialog.setContentView(R.layout.dialog_diamond_slot_machine);
         dialog.setTitle("Get Arrows");
-        TextView tvDiamonds = (TextView)findViewById(R.id.textView_diamondSlot);
-        String auxDiamond1, auxDiamond2;
-        auxDiamond1 = getString(R.string.slot_diamond1);
-        auxDiamond2 = getString(R.string.slot_diamond2);
 
 
         switch (diamonds){
             case 1:
 
                 walletDiamond = walletDiamond + 1;
-                tvDiamonds.setText(auxDiamond1 + diamonds + auxDiamond2 );
+                tvDiamantes.setText(String.valueOf(walletDiamond));
                 break;
             case 2:
 
                 walletDiamond = walletDiamond + 2;
-                tvDiamonds.setText(auxDiamond1 + diamonds + auxDiamond2 );
+                tvDiamantes.setText(String.valueOf(walletDiamond));
                 break;
             case 3:
 
                 walletDiamond = walletDiamond + 3;
-                tvDiamonds.setText(auxDiamond1 + diamonds + auxDiamond2 );
+                tvDiamantes.setText(String.valueOf(walletDiamond));
                 break;
             case 5:
 
                 walletDiamond = walletDiamond + 5;
-                tvDiamonds.setText(auxDiamond1 + diamonds + auxDiamond2 );
+                tvDiamantes.setText(String.valueOf(walletDiamond));
                 break;
             default:
                 break;
@@ -409,7 +378,9 @@ public class MainActivity_SlotMachine extends AppCompatActivity {
 
         dialog.show();
 
-        //Modificar WalletDiamondFirebase
+        userAux.setDiamonds(walletDiamond);
+        databaseReference.child("Persona").child(userAux.getUid()).setValue(null);
+        databaseReference.child("Persona").child(userAux.getUid()).setValue(userAux);
 
     }
 
