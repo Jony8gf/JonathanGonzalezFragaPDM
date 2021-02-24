@@ -10,9 +10,7 @@
         android:id="@+id/imgs"
         android:layout_width="339dp"
         android:layout_height="159dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp"
+        android:layout_centerInParent="true"
         android:orientation="horizontal">
 
         <ImageView
@@ -47,9 +45,10 @@
         android:id="@+id/btnPlay"
         android:layout_width="178dp"
         android:layout_height="68dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="86dp"
+        android:layout_marginStart="154dp"
+        android:layout_marginBottom="50dp"
         android:onClick="tiradaSlot"
         android:text="@string/play" />
 
@@ -57,9 +56,10 @@
         android:id="@+id/textView_Diamantes"
         android:layout_width="104dp"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imgs"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="388dp"
+        android:layout_marginTop="27dp"
         android:shadowColor="#73EAD2"
         android:text="@string/numero_flechas"
         android:textAlignment="center"
@@ -70,15 +70,43 @@
         android:id="@+id/adView"
         android:layout_width="390dp"
         android:layout_height="86dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="542dp"
+        android:layout_marginTop="1dp"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-8043381776244583/9427752515"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/menuBotonNavegacion_Slot"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/pink"
+        app:itemIconTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_navegacion">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <Button
+        android:id="@+id/buttonCambiarDiamantes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="227dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="cambiarDiamantesAFlechas"
+        android:text="@string/cambiar_diamantes_flechas" />
 
 
 </RelativeLayout>
